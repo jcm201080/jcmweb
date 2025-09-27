@@ -12,14 +12,17 @@ footer .contacto .titulo{
 footer .contacto .formulario{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between;  
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
 footer .contacto .formulario input[type="text"],input[type="email"],textarea {
     border: 2px solid #cecece;
     border-radius: 5px;
     padding: 15px 20px;
     font-size: 20px;
-    color: #a4a4a4;
+    color: #a4a4a4;    
 }
 footer .contacto .formulario input[type="text"]:focus,
 footer .contacto .formulario input[type="email"]:focus,
@@ -55,6 +58,7 @@ footer .contacto .formulario .boton:hover{
 
 /*redes sociales*/
 footer .redes-sociales{
+    margin-top: 40px;
     background: #1d3642;
     padding: 60px 0;
 }
