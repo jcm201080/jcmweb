@@ -1,5 +1,5 @@
 .main .trabajos{
-    background: #c9c1c1;
+    background: #636161;
     padding: 60px 0;
 }
 .main .trabajos .contenedor{
@@ -38,7 +38,7 @@
 }
 .main .trabajos .contenedor-trabajos .trabajo .descripcion .nombre{
     font-weight: 700;
-    color: #3895ea;
+    color: #c7d4e0;
     margin-bottom: 10px;
 }
 .main .trabajos .contenedor-trabajos .trabajo .descripcion .categoria{
