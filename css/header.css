@@ -54,3 +54,9 @@ header .contenedor-texto .texto .profesion{
       font-size: 25px;
     line-height: 25px;
 }
+
+/*Entre header y main*/
+.seo-text {
+  position: absolute;
+  left: -9999px;
+}
