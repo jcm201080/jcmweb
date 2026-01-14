@@ -21,6 +21,14 @@
 
 /* Ocultar foto en móviles */
 @media (max-width: 768px) {
+    .acerca-de .foto {
+        display: none;
+    }
+}
+
+
+/* centrar texto en móviles */
+@media (max-width: 768px) {
     .acerca-de .texto {
         text-align: center;
     }
