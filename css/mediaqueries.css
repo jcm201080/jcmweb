@@ -18,3 +18,10 @@
         padding: 20px 0;
     }
 }
+
+/* Ocultar foto en móviles */
+@media (max-width: 768px) {
+    .acerca-de .texto {
+        text-align: center;
+    }
+}
