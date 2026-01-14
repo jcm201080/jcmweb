@@ -33,3 +33,27 @@
         text-align: center;
     }
 }
+
+/* Corrección overflow en móviles para evitar texto cortado */
+@media screen and (max-width: 768px) {
+
+    header .contenedor,
+    header .contenedor-texto,
+    header .contenedor-texto .texto {
+        overflow: visible;
+    }
+
+    header .contenedor-texto .texto {
+        padding: 20px;
+    }
+
+    header .contenedor-texto .texto .nombre {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    header .contenedor-texto .texto .profesion {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+}
