@@ -1,50 +1,29 @@
-@media screen and (max-width:800px) {
-    header .menu{
-        text-align: center;
-    }
-    .main .trabajos .contenedor-trabajos .trabajo{
-        width: 46%;
-    }    
-}
-@media screen and (max-width:500px) {
-    header .contenedor-texto .texto .nombre{
-        font-size: 35px;
-    }
-    header .contenedor-texto .texto .profesion{
-        font-size: 18px;
-    }
-    footer .redes-sociales .contenedor{
-        flex-wrap: wrap;
-        padding: 20px 0;
-    }
-}
-
-/* Ocultar foto en móviles */
-@media (max-width: 768px) {
-    .acerca-de .foto {
-        display: none;
-    }
-}
-
-
-/* centrar texto en móviles */
-@media (max-width: 768px) {
-    .acerca-de .texto {
-        text-align: center;
-    }
-}
-
-/* Corrección overflow en móviles para evitar texto cortado */
+/* =========================
+   TABLET Y MÓVIL
+   ========================= */
 @media screen and (max-width: 768px) {
 
-    header .contenedor,
-    header .contenedor-texto,
-    header .contenedor-texto .texto {
+    /* ===== HEADER ===== */
+
+    header {
+        max-height: none;
+        padding-bottom: 40px;
+    }
+
+    header .menu {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    header .contenedor-texto {
+        margin: 80px 0 40px 0;
+        padding: 0 15px;
         overflow: visible;
     }
 
     header .contenedor-texto .texto {
         padding: 20px;
+        overflow: visible;
     }
 
     header .contenedor-texto .texto .nombre {
@@ -55,5 +34,75 @@
     header .contenedor-texto .texto .profesion {
         font-size: 16px;
         line-height: 1.4;
+    }
+
+    /* ===== TRABAJOS ===== */
+
+    .main .trabajos .contenedor-trabajos .trabajo {
+        width: 46%;
+    }
+
+    /* ===== ACERCA DE ===== */
+
+    .acerca-de .foto {
+        display: none;
+    }
+
+    .acerca-de .texto {
+        width: 90%;
+        margin: 30px auto 40px auto;
+        text-align: center;
+        font-size: 0.95em;
+        line-height: 26px;
+    }
+
+    .acerca-de .texto .titulo {
+        font-size: 26px;
+        line-height: 26px;
+        margin-bottom: 25px;
+    }
+}
+
+
+/* =========================
+   MÓVILES PEQUEÑOS
+   ========================= */
+@media screen and (max-width: 500px) {
+
+    header .contenedor-texto .texto .nombre {
+        font-size: 28px;
+    }
+
+    header .contenedor-texto .texto .profesion {
+        font-size: 15px;
+    }
+
+    footer .redes-sociales .contenedor {
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .main .trabajos .contenedor-trabajos .trabajo {
+        width: 100%;
+    }
+}
+
+
+/*Formulario de contacto en footer*/
+@media screen and (max-width: 768px) {
+
+    footer .contacto .formulario {
+        width: 95%;
+    }
+
+    footer .contacto .formulario input[type="text"],
+    footer .contacto .formulario input[type="email"] {
+        width: 100%;
+    }
+
+    footer .redes-sociales a {
+        width: 70px;
+        margin: 0 10px;
+        font-size: 24px;
     }
 }

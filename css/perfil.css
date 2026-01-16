@@ -1,0 +1,42 @@
+.header-simple {
+    background: #1c3541;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.perfil {
+    padding: 60px 0;
+}
+
+.perfil-bloque {
+    width: 80%;
+    margin: 0 auto 60px auto;
+}
+
+.perfil-bloque h2 {
+    color: #3895ea;
+    margin-bottom: 20px;
+}
+
+.lista-tecnologias {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.perfil-bloque .item {
+    margin-bottom: 25px;
+}
+
+.perfil-bloque .item h3 {
+    margin-bottom: 5px;
+}
+
+.perfil-bloque ul {
+    padding-left: 35px;
+}
+
+.perfil-bloque li {
+    margin-bottom: 8px;
+}
+

@@ -55,3 +55,8 @@ header .contenedor-texto .texto .profesion{
     line-height: 25px;
 }
 
+.menu a.activo {
+    border-bottom: 2px solid #fff;
+}
+
+

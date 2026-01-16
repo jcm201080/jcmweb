@@ -1,6 +1,9 @@
 footer{
     padding: 60px 0;
 }
+
+/* ===== CONTACTO ===== */
+
 footer .contacto .titulo{
     font-size: 34px;
     line-height: 34px;
@@ -9,40 +12,62 @@ footer .contacto .titulo{
     color: #3895ea;
     text-align: center;
 }
+
 footer .contacto .formulario{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;  
     width: 80%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 }
-footer .contacto .formulario input[type="text"],input[type="email"],textarea {
+
+/* Inputs y textarea (CORREGIDO) */
+footer .contacto .formulario input[type="text"],
+footer .contacto .formulario input[type="email"],
+footer .contacto .formulario textarea {
     border: 2px solid #cecece;
     border-radius: 5px;
     padding: 15px 20px;
     font-size: 20px;
-    color: #a4a4a4;    
+    color: #555;
 }
+
+/* Focus */
 footer .contacto .formulario input[type="text"]:focus,
 footer .contacto .formulario input[type="email"]:focus,
-footer .contacto .formulario textarea:focus
-{
-    border: 2px solid #3895ea; 
+footer .contacto .formulario textarea:focus {
+    outline: none;
+    border-color: #3895ea;
 }
-footer .contacto .formulario input[type="text"],input[type="email"]{
+
+/* Validación visual UX */
+footer .contacto .formulario input:valid,
+footer .contacto .formulario textarea:valid {
+    border-color: #2ecc71;
+}
+
+footer .contacto .formulario input:invalid,
+footer .contacto .formulario textarea:invalid {
+    border-color: #e74c3c;
+}
+
+/* Inputs en línea */
+footer .contacto .formulario input[type="text"],
+footer .contacto .formulario input[type="email"]{
     width: 49%;
     margin-bottom: 15px; 
 }
+
+/* Textarea */
 footer .contacto .formulario textarea{
     width: 100%;
-    height: 100px;
-    min-width: 100%;
-    max-width: 100%;
-    min-height:100px ;
+    min-height: 100px;
     max-height: 300px;
+    resize: vertical;
     margin-bottom: 15px;
 }
+
+/* Botón */
 footer .contacto .formulario .boton{
     margin: auto;
     background: #3895ea;
@@ -51,21 +76,47 @@ footer .contacto .formulario .boton{
     border-radius: 3px;
     padding: 15px 40px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
 }
+
 footer .contacto .formulario .boton:hover{
     background: #387bea;
 }
 
-/*redes sociales*/
+footer .contacto .formulario .boton:active{
+    transform: scale(0.97);
+}
+
+/* Texto alternativo email */
+.contacto-extra {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ccc;
+    text-align: center;
+}
+
+.contacto-extra a {
+    color: #dd820d;
+    text-decoration: none;
+}
+
+.contacto-extra a:hover {
+    text-decoration: underline;
+}
+
+/* ===== REDES SOCIALES ===== */
+
 footer .redes-sociales{
     margin-top: 40px;
     background: #1d3642;
     padding: 60px 0;
 }
+
 footer .redes-sociales .contenedor{
     display: flex;
     justify-content: center;
 }
+
 footer .redes-sociales a{
     color: #fff;
     text-align: center;
@@ -76,12 +127,16 @@ footer .redes-sociales a{
     font-size: 30px;
     margin: 0 20px;
 }
-footer .redes-sociales .twiter:hover{ background: #1da1f2;}
-footer .redes-sociales .facebook:hover{ background:#3b5998 ;}
-footer .redes-sociales .youtube:hover{ background: #ff0000;}
-footer .redes-sociales .github:hover{ background: #4078c0;}
-footer .redes-sociales .instagram:hover{ background: #405de6;}
 
+/* Hovers */
+footer .redes-sociales .twiter:hover{ background: #1da1f2; }
+footer .redes-sociales .facebook:hover{ background:#3b5998; }
+footer .redes-sociales .youtube:hover{ background: #ff0000; }
+footer .redes-sociales .github:hover{ background: #4078c0; }
+footer .redes-sociales .instagram:hover{ background: #405de6; }
+footer .redes-sociales .linkedin:hover{ background: #0077b5; }
+
+/* Footer final */
 .final{
     text-align: center;
 }

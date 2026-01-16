@@ -8,6 +8,8 @@
 @import 'trabajos.css';
 @import 'footer.css';
 @import 'mediaqueries.css';
+@import 'gracias.css';
+@import 'perfil.css';
 
 * {
     margin: 0;
