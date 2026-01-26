@@ -387,17 +387,21 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
-    <!--Contabilizar visitas desde juegos-->
+    <!-- Contabilizar visitas desde la web principal,  aparece en dasboard juegos -->
     <script>
     fetch("https://juegos.jesuscmweb.com/api/track", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+        "Content-Type": "application/json"
+    },
     body: JSON.stringify({
         ruta: "/",
         origen: "web_principal"
     })
     });
     </script>
+
+
 
 
 </body>
