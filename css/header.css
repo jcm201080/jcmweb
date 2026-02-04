@@ -59,4 +59,39 @@ header .contenedor-texto .texto .profesion{
     border-bottom: 2px solid #fff;
 }
 
+.lang-selector {
+  font-size: 0.8rem;
+  color: white;
+}
 
+.lang-selector a,
+.lang-selector .activo {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0 5px;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.lang-selector a {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.lang-selector a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.lang-selector .activo {
+  opacity: 1;
+  font-weight: bold;
+  cursor: default;
+}
+
+.lang-selector img {
+  vertical-align: middle;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}

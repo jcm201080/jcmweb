@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,11 +9,14 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/favicon.png" type="image/png">
 
-
-    <!-- 👇 SEO básico -->
+    <!-- SEO -->
     <meta name="description"
-        content="Portfolio profesional de Jesús Castaño. Programador Python, desarrollo web con Flask y proyectos de Big Data.">
-    <title>Jesús Castaño | Programador Python, Flask y Big Data</title>
+        content="Professional portfolio of Jesús Castaño. Python developer specialized in Flask, Big Data and real-world VPS deployments.">
+    <title>Jesús Castaño | Python Developer, Flask & Big Data</title>
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="es" href="https://jesuscmweb.com/index.html">
+    <link rel="alternate" hreflang="en" href="https://jesuscmweb.com/index-en.html">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -24,10 +27,9 @@
         gtag('config', 'G-XXXXXXXXXX');
     </script>
 
-
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
@@ -35,388 +37,386 @@
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCHPSVVD" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCHPSVVD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <header>
         <div class="contenedor">
             <nav class="menu">
                 <div>
-                    <a href="#acerca-de">Acerca de</a>
-                    <a href="#trabajos">Trabajos</a>                    
-                    <a href="perfil.html">Perfil</a>
-                    <a href="#contacto">Contacto</a>
+                    <a href="#acerca-de">About</a>
+                    <a href="#trabajos">Projects</a>
+                    <a href="perfil-en.html">Profile</a>
+                    <a href="#contacto">Contact</a>
                 </div>
+
                 <div class="logo">
-                    <img src="img/logo.jpg" alt="imagen fallida">
+                    <img src="img/logo.jpg" alt="Logo">
                 </div>
+
                 <!-- Language switch -->
                 <div class="lang-selector">
-                    <span class="activo" lang="es">
+                    <a href="/index.html" lang="es">
                         <img src="img/banderas/españa.png" alt="Español" width="24">
                         ES
-                    </span>
+                    </a>
                     |
-                    <a href="/index-en.html" lang="en">
+                    <span class="activo" lang="en">
                         <img src="img/banderas/inglaterra.png" alt="English" width="24">
                         EN
-                    </a>
-                </div>
+                    </span>
+                </div>             
+
+
             </nav>
+            
+
             <div class="contenedor-texto">
                 <div class="texto">
-                    <h1 class="nombre">Jesús Castaño – Programador Python y Big Data</h1>
+                    <h1 class="nombre">Jesús Castaño – Python & Big Data Developer</h1>
                     <h2 class="profesion">
-                        Programador Python · Flask · Big Data · Despliegues reales en VPS
+                        Python · Flask · Big Data · Real VPS Deployments
                     </h2>
-
                 </div>
             </div>
         </div>
     </header>
+
     <main>
         <section class="main">
+
+            <!-- ABOUT -->
             <section class="acerca-de" id="acerca-de">
                 <div class="contenedor">
                     <div class="foto">
                         <img src="img/mifoto.png?v=1" width="115" alt="Jesús Castaño">
                     </div>
+
                     <div class="texto">
-                        <h3 class="titulo">Acerca de</h3>
+                        <h3 class="titulo">About</h3>
                         <p>
-                            Soy <strong>Jesús Castaño</strong>, <strong>programador Python</strong> especializado en
-                            <strong>Flask</strong>, <strong>Big Data</strong> y despliegue de aplicaciones web reales en
-                            producción.
-                            Desarrollo proyectos completos con bases de datos, autenticación de usuarios, análisis de
-                            datos,
-                            gráficos interactivos y aplicaciones desplegadas en VPS.
+                            I'm <strong>Jesús Castaño</strong>, a <strong>Python developer</strong> specialized in
+                            <strong>Flask</strong>, <strong>Big Data</strong> and real-world production deployments.
+                            I build complete web applications with databases, user authentication, data analysis,
+                            interactive charts and services deployed on VPS environments.
                         </p>
-
-
                     </div>
                 </div>
             </section>
+
+            <!-- PROJECTS -->
             <section class="trabajos" id="trabajos">
                 <div class="contenedor">
-                    <h3 class="titulo">Trabajos</h3>
+                    <h3 class="titulo">Projects</h3>
+
                     <div class="contenedor-trabajos">
 
-                        <!--Proyecto informática-->
+                        <!-- IT Management -->
                         <div class="trabajo">
                             <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer" href="https://informatica.jesuscmweb.com">
-                                    <img src="img/programainfor.png" alt="Proyecto de gestión informática en Python"
-                                        loading="lazy">
-                                </a>
-                            </div>
-
-                            <div class="descripcion">
-                                <p class="nombre">Programa infomática python</p>
-                                <p class="categoria">Pagina de tokio</p>
-                            </div>
-                        </div>
-
-                        <!--Juegos-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer" href="https://juegos.jesuscmweb.com">
-
-                                    <img src="img/juegosjcm.png" alt="Error img Juegos jcm" loading="lazy">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://informatica.jesuscmweb.com">
+                                    <img src="img/programainfor.png"
+                                        alt="IT management project built with Python" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Juego JCM – JavaScript</p>
-                                <p class="categoria">Juego web desarrollado en HTML, CSS y JavaScript</p>
-
+                                <p class="nombre">IT Management System (Python)</p>
+                                <p class="categoria">Final project developed during professional training</p>
                             </div>
                         </div>
 
-                        <!-- Ciberseguridad -->
+                        <!-- Games -->
+                        <div class="trabajo">
+                            <div class="thumb">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://juegos.jesuscmweb.com">
+                                    <img src="img/juegosjcm.png" alt="Web games project" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="descripcion">
+                                <p class="nombre">JCM Games – JavaScript</p>
+                                <p class="categoria">Web games developed using HTML, CSS and JavaScript</p>
+                            </div>
+                        </div>
+
+                        <!-- Cybersecurity -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
                                     href="https://ciberseguridad.jesuscmweb.com">
-                                    <img src="img/ciberseguridad.png" alt="Proyecto de Ciberseguridad" loading="lazy">
+                                    <img src="img/ciberseguridad.png" alt="Cybersecurity project" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Proyecto de Ciberseguridad</p>
+                                <p class="nombre">Cybersecurity Project</p>
                                 <p class="categoria">
-                                    Análisis de logs, seguridad web y detección de incidentes · Python
+                                    Log analysis, web security and incident detection · Python
                                 </p>
                             </div>
                         </div>
 
-
-                        <!--Alquiler Furgo-->
+                        <!-- Camper Van -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
                                     href="https://jcm201080.github.io/furgoCamper/">
-                                    <img src="img/furgo.png" alt="Error img FurgonetaCamper" loading="lazy">
+                                    <img src="img/furgo.png" alt="Camper van rental website" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Alquiler Furgoneta</p>
-
-                                <p class="categoria">Página html del bar de Alquiler de furgoCamper</p>
+                                <p class="nombre">Camper Van Rental</p>
+                                <p class="categoria">Static HTML website</p>
                             </div>
                         </div>
 
-                        <!-- Peluquería -->
+                        <!-- Barber Shop -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
-                                href="https://peluqueria.jesuscmweb.com">
-                                    <img src="img/peluqueria.png" alt="Error img Peluquería" loading="lazy">
+                                    href="https://peluqueria.jesuscmweb.com">
+                                    <img src="img/peluqueria.png" alt="Barber shop website" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Peluquería</p>
-                                <p class="categoria">Página web de Tienda de peluquería</p>
+                                <p class="nombre">Barber Shop</p>
+                                <p class="categoria">Business website</p>
                             </div>
                         </div>
 
-
-                        <!-- Hamburguesería -->
+                        <!-- Burger App -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
-                                href="https://hamburgueseria.jesuscmweb.com">
-                                    <img src="img/burguer.png" alt="Error img Hamburguesería" loading="lazy">
+                                    href="https://hamburgueseria.jesuscmweb.com">
+                                    <img src="img/burguer.png" alt="Burger restaurant web app" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Hamburguesería</p>
-                                <p class="categoria">Aplicación web Flask en producción</p>
+                                <p class="nombre">Burger Restaurant</p>
+                                <p class="categoria">Flask web application in production</p>
                             </div>
                         </div>
 
-
-
-
-                        <!--PiterPub-->
+                        <!--  Bar Peter-->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
                                     href="https://jcm201080.github.io/piterpub/">
-                                    <img src="img/barPiter.jpg" alt="Error img Bar Piter" loading="lazy">
+                                    <img src="img/barPiter.jpg" alt="Bar Piter website" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
                                 <p class="nombre">Bar Piter</p>
-
-                                <p class="categoria">Página html del bar de peter hecha con css</p>
+                                <p class="categoria">Static HTML & CSS website for a bar</p>
                             </div>
                         </div>
 
-                        <!--Mis recetas -->
+                        <!--Mis recetas-->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
                                     href="https://jcm201080.github.io/misrecetas/">
-                                    <img src="img/misrecetas.png" alt="Error img Mis Recetas" loading="lazy">
+                                    <img src="img/misrecetas.png" alt="My Recipes website" loading="lazy">
                                 </a>
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Mis Recetas</p>
-                                <p class="categoria">Pagina de mis recetas, hecha en el curso de visual studio</p>
+                                <p class="nombre">My Recipes</p>
+                                <p class="categoria">Personal recipe website developed during a web development course</p>
                             </div>
                         </div>
 
-
-
+                        <!--Taller-->
                         <div class="trabajo">
                             <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../pagina web taller/mi-pagina/pagina principal/index.html">-->
-                                <img src="img/taller.png" alt="Error img taller" loading="lazy">
-                                {# </a> #}
+                                <img src="img/taller.png" alt="Workshop website project" loading="lazy">
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Taller </p>
-                                <p class="categoria">Pagina a medio hacer</p>
+                                <p class="nombre">Workshop Website</p>
+                                <p class="categoria">Work in progress project</p>
                             </div>
                         </div>
+
 
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a href="../udemy/Diseño Web/practicas/layout/index.html">-->
-                                <img src="img/layout.png" alt="Error img layout" loading="lazy">
+                                <img src="img/layout.png" alt="Layout design page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página Layout</p>
-                                <p class="categoria">Pagina de udemy de layout</p>
+                                <p class="nombre">Layout Page</p>
+                                <p class="categoria">Layout design practice from Udemy course</p>
                             </div>
                         </div>
+
+
+                        
+
 
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/Bootstrap4/index.html">-->
-                                <img src="img/boostrap4.png" alt="Error img boostrap4" loading="lazy">
+                                <img src="img/boostrap4.png" alt="Bootstrap 4 page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página boostrap4</p>
-                                <p class="categoria">Pagina de udemy de bootstrap</p>
+                                <p class="nombre">Bootstrap 4 Page</p>
+                                <p class="categoria">Bootstrap practice from Udemy course</p>
                             </div>
                         </div>
 
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/flexbox/index.html">-->
-                                <img src="img/flexbox.png" alt="Error img flexbox" loading="lazy">
+                                <img src="img/flexbox.png" alt="Flexbox layout page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página flexbox</p>
-                                <p class="categoria">Pagina de udemy de flexbox</p>
+                                <p class="nombre">Flexbox Page</p>
+                                <p class="categoria">Flexbox layout practice from Udemy course</p>
                             </div>
                         </div>
 
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/blog/index.html">-->
-                                <img src="img/blog.png" alt="Error img blog" loading="lazy">
+                                <img src="img/blog.png" alt="Blog layout page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página blog</p>
-                                <p class="categoria">Pagina de udemy de blog</p>
+                                <p class="nombre">Blog Page</p>
+                                <p class="categoria">Blog layout practice from Udemy course</p>
                             </div>
                         </div>
 
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/restaurante/index.html">-->
-                                <img src="img/Restaurante.png" alt="Error img Restaurante" loading="lazy">
+                                <img src="img/Restaurante.png" alt="Restaurant website page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página Restaurante</p>
-                                <p class="categoria">Pagina de udemy de Restaurante</p>
+                                <p class="nombre">Restaurant Website</p>
+                                <p class="categoria">Restaurant website practice from Udemy course</p>
                             </div>
                         </div>
+
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FREELANCER_INICO/index.html">-->
-                                <img src="img/freelancer.png" alt="Error img Freelancer" loading="lazy">
+                                <img src="img/freelancer.png" alt="Freelancer website page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página Freelancer</p>
-                                <p class="categoria">Pagina de udemy Freelancer</p>
+                                <p class="nombre">Freelancer Website</p>
+                                <p class="categoria">Freelancer website practice from Udemy course</p>
                             </div>
-                        </div><!--trabajo-->
+                        </div>
+
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FRONTENDSTORE/index.html">-->
-                                <img src="img/tienda.png" alt="Error img tienda" loading="lazy">
+                                <img src="img/tienda.png" alt="Online store page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página de tienda</p>
-                                <p class="categoria">Pagina de udemy frontendstore</p>
+                                <p class="nombre">Online Store</p>
+                                <p class="categoria">Frontend store practice from Udemy course</p>
                             </div>
-                        </div><!--trabajo-->
+                        </div>
+
                         <div class="trabajo">
                             <div class="thumb">
                                 <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/blogCafe/blogdecafe_inicio/blogdecafe_inicio/index.html">-->
-                                <img src="img/blogCafe.png" alt="Error img Café" loading="lazy">
+                                <img src="img/blogCafe.png" alt="Coffee blog page" loading="lazy">
                                 {# </a> #}
                             </div>
                             <div class="descripcion">
-                                <p class="nombre">Página BlogCafe</p>
-                                <p class="categoria">Pagina de udemy Css y html</p>
+                                <p class="nombre">Coffee Blog</p>
+                                <p class="categoria">CSS & HTML blog practice from Udemy course</p>
                             </div>
-                        </div><!--trabajo-->
-
+                        </div>
 
 
                     </div>
                 </div>
             </section>
+
         </section>
     </main>
+
     <footer>
 
-        <!-- CONTACTO -->
+        <!-- CONTACT -->
         <section class="contacto" id="contacto">
             <div class="contenedor">
-                <h3 class="titulo">Contacto</h3>
+                <h3 class="titulo">Contact</h3>
 
                 <form class="formulario" action="https://formspree.io/f/meeeoylr" method="POST">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
 
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="correo" placeholder="Correo" required>
-                    <input type="hidden" name="_redirect" value="https://jesuscmweb.com/gracias.html">
+                    <input type="hidden" name="_redirect"
+                        value="https://jesuscmweb.com/gracias.html">
 
+                    <textarea name="message" placeholder="Message" required></textarea>
 
-                    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-
-                    <!-- Asunto del correo -->
-                    <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
-
-                    <!-- Opcional: desactivar captcha -->
+                    <input type="hidden" name="_subject" value="New message from portfolio">
                     <input type="hidden" name="_captcha" value="false">
 
-                    <input class="boton" type="submit" value="Enviar">
+                    <input class="boton" type="submit" value="Send">
                 </form>
 
-                <!-- Email visible como alternativa -->
                 <p class="contacto-extra">
-                    O escríbeme directamente a
+                    Or contact me directly at
                     <a href="mailto:jcm201080@gmail.com">jcm201080@gmail.com</a>
                 </p>
             </div>
         </section>
 
-        <!-- REDES SOCIALES -->
+        <!-- SOCIAL -->
         <section class="redes-sociales">
             <div class="contenedor">
-
                 <a href="https://github.com/jcm201080" target="_blank" rel="noopener noreferrer" class="github">
                     <i class="fa fa-github"></i>
                 </a>
 
-                <a href="https://www.linkedin.com/in/jesus-castano-822408361" target="_blank" rel="noopener noreferrer"
-                    class="linkedin">
+                <a href="https://www.linkedin.com/in/jesus-castano-822408361" target="_blank"
+                    rel="noopener noreferrer" class="linkedin">
                     <i class="fa fa-linkedin"></i>
                 </a>
-
             </div>
         </section>
 
         <!-- COPYRIGHT -->
         <div class="final">
-            © 2021–<span id="year"></span> Jesús Castaño · Portfolio personal
+            © 2021–<span id="year"></span> Jesús Castaño · Personal Portfolio
         </div>
 
     </footer>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/efectos.js"></script>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
-    <!-- Contabilizar visitas desde la web principal,  aparece en dasboard juegos -->
+    <!-- Track visits -->
     <script>
-    fetch("https://juegos.jesuscmweb.com/api/track", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        ruta: "/",
-        origen: "web_principal"
-    })
-    });
+        fetch("https://juegos.jesuscmweb.com/api/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                ruta: "/index-en",
+                origen: "web_principal"
+            })
+        });
     </script>
 
-
-
-
 </body>
-
 </html>
