@@ -5,7 +5,7 @@
 .main .trabajos .contenedor{
     overflow: hidden;
 }
-.main .trabajos .titulo{
+.main .titulo{
     font-size: 34px;
     line-height: 34px;
     margin-bottom: 40px;
@@ -18,11 +18,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: stretch;
 }
-.main .trabajos .contenedor-trabajos .trabajo{
+.main .trabajos .contenedor-trabajos .trabajo {
     width: 23%;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
 }
+
 .main .trabajos .contenedor-trabajos .trabajo .thumb {
     width: 100%;
     height: 240px;
@@ -39,15 +43,21 @@
 
 .main .trabajos .contenedor-trabajos .trabajo .descripcion {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
+
 .main .trabajos .contenedor-trabajos .trabajo .descripcion .nombre{
     font-weight: 700;
     color: #c7d4e0;
     margin-bottom: 10px;
+    min-height: 48px;
 }
 .main .trabajos .contenedor-trabajos .trabajo .descripcion .categoria{
     font-size: 14px;
     color: #9aa6b2;
+    min-height: 40px;
 
 }
 
@@ -57,4 +67,173 @@
 
 .main .trabajos .contenedor-trabajos .trabajo:hover img {
     transform: scale(1.05);
+}
+
+
+/* ==============================
+   DESCRIPCIÓN CORTA
+================================= */
+
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .descripcion-corta{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #d5dde5;
+    line-height: 20px;
+}
+
+/* ==============================
+   ACCIONES (botones)
+================================= */
+
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .acciones{
+    margin-top: auto;
+}
+
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .acciones button,
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .acciones a{
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin: 4px 2px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.btn-detalles{
+    background-color: #444;
+    color: #fff;
+}
+
+.btn-detalles:hover{
+    background-color: #222;
+}
+
+.btn-proyecto{
+    background-color: #2f80ed;
+    color: #fff;
+}
+
+.btn-proyecto:hover{
+    background-color: #1c5ec4;
+}
+
+.btn-repo{
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-repo:hover{
+    background-color: #4e555b;
+}
+
+/* ==============================
+   BLOQUE DETALLES DESPLEGABLE
+================================= */
+
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .detalles{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: left;
+    color: #cfd8e3;
+}
+
+.main .trabajos .contenedor-trabajos .trabajo .descripcion .detalles ul{
+    padding-left: 18px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-contenido {
+    background: #1f2a33;
+    color: #fff;
+    padding: 30px;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 8px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==============================
+   SECCIÓN OTROS PROYECTOS
+================================= */
+
+.main .otros {
+    background: #636161;
+    padding: 40px 0 70px 0;
+    text-align: center;
+}
+
+.main .otros .titulo {
+    margin-bottom: 20px;
+}
+
+.main .otros .otros-descripcion {
+    color: #cfd8e3;
+    margin-bottom: 25px;
+}
+
+.main .otros .btn-otros {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #2f80ed;
+    color: #2f80ed;
+    padding: 8px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.main .otros .btn-otros:hover {
+    background-color: #2f80ed;
+    color: #fff;
+}
+
+.btn-otros {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: black !important;
+    padding: 14px 34px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-otros:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
 }

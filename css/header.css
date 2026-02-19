@@ -2,7 +2,7 @@ header{
     background: url('../img/bg.jpg') #1c3541;
     background-repeat: no-repeat;
     background-position:center;
-    max-height: 600px;
+    max-height: 300px;
 }
 header .menu{
     margin: 40px 0;

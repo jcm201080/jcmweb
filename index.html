@@ -43,7 +43,7 @@
             <nav class="menu">
                 <div>
                     <a href="#acerca-de">Acerca de</a>
-                    <a href="#trabajos">Trabajos</a>                    
+                    <a href="#trabajos">Trabajos</a>
                     <a href="perfil.html">Perfil</a>
                     <a href="#contacto">Contacto</a>
                 </div>
@@ -57,7 +57,7 @@
                         ES
                     </span>
                     |
-                    <a href="/index-en.html" lang="en">
+                    <a href="index-en.html" onclick="localStorage.setItem('preferredLanguage','en')">
                         <img src="img/banderas/inglaterra.png" alt="English" width="24">
                         EN
                     </a>
@@ -65,11 +65,13 @@
             </nav>
             <div class="contenedor-texto">
                 <div class="texto">
-                    <h1 class="nombre">Jesús Castaño – Programador Python y Big Data</h1>
+                    <h1 class="nombre">Jesús Castaño</h1>
                     <h2 class="profesion">
-                        Programador Python · Flask · Big Data · Despliegues reales en VPS
+                        Backend Developer · Python · Flask · Sistemas en Tiempo Real
                     </h2>
-
+                    <p class="subprofesion">
+                        Arquitecturas modulares · Aplicaciones empresariales · Análisis de datos
+                    </p>
                 </div>
             </div>
         </div>
@@ -98,82 +100,120 @@
             </section>
             <section class="trabajos" id="trabajos">
                 <div class="contenedor">
-                    <h3 class="titulo">Trabajos</h3>
+
+                    <!-- ===================== -->
+                    <!-- PROYECTOS DESTACADOS -->
+                    <!-- ===================== -->
+
+                    <h3 class="titulo">Proyectos Destacados</h3>
                     <div class="contenedor-trabajos">
 
-                        <!--Proyecto informática-->
+                        <!-- Tienda Informática -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer" href="https://informatica.jesuscmweb.com">
-                                    <img src="img/programainfor.png" alt="Proyecto de gestión informática en Python"
+                                    <img src="img/programainfor.png" alt="Sistema de gestión empresarial en Flask"
                                         loading="lazy">
                                 </a>
                             </div>
 
                             <div class="descripcion">
-                                <p class="nombre">Programa infomática python</p>
-                                <p class="categoria">Pagina de tokio</p>
+                                <p class="nombre">
+                                    Sistema de Gestión Empresarial (ERP)
+                                </p>
+
+                                <p class="categoria">
+                                    Flask · SQLAlchemy · Roles · Stock · Dashboard · Deploy
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="abrirModal('erp')">
+                                        🔍 Ver detalles
+                                    </button>
+
+                                    <a href="https://informatica.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                        🌐 Ver proyecto
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/ProyectoInformatica.git" target="_blank"
+                                        class="btn-repo">
+                                        Código
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <!--Juegos-->
+                        <!-- Plataforma Juegos -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer" href="https://juegos.jesuscmweb.com">
-
-                                    <img src="img/juegosjcm.png" alt="Error img Juegos jcm" loading="lazy">
+                                    <img src="img/juegosjcm.png" alt="Plataforma de juegos online con Flask y SocketIO"
+                                        loading="lazy">
                                 </a>
                             </div>
-                            <div class="descripcion">
-                                <p class="nombre">Juego JCM – JavaScript</p>
-                                <p class="categoria">Juego web desarrollado en HTML, CSS y JavaScript</p>
 
+                            <div class="descripcion">
+                                <p class="nombre">
+                                    Plataforma Interactiva Juegos JCM
+                                </p>
+
+                                <p class="categoria">
+                                    Flask · Socket.IO · Tiempo real · Arquitectura modular · VPS
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="abrirModal('juegos')">
+                                        🔍 Ver detalles
+                                    </button>
+
+                                    <a href="https://juegos.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                        🌐 Ver proyecto
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/juegosJCM.git" target="_blank"
+                                        class="btn-repo">
+                                        Código
+                                    </a>
+                                </div>
                             </div>
                         </div>
+
+
 
                         <!-- Ciberseguridad -->
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
                                     href="https://ciberseguridad.jesuscmweb.com">
-                                    <img src="img/ciberseguridad.png" alt="Proyecto de Ciberseguridad" loading="lazy">
+                                    <img src="img/ciberseguridad.png"
+                                        alt="Sistema de análisis de logs y detección de anomalías" loading="lazy">
                                 </a>
                             </div>
+
                             <div class="descripcion">
-                                <p class="nombre">Proyecto de Ciberseguridad</p>
-                                <p class="categoria">
-                                    Análisis de logs, seguridad web y detección de incidentes · Python
+                                <p class="nombre">
+                                    Sistema de Análisis de Logs – Ciberseguridad
                                 </p>
-                            </div>
-                        </div>
 
+                                <p class="categoria">
+                                    Python · RegEx · Procesamiento masivo · Detección de anomalías
+                                </p>
 
-                        <!--Alquiler Furgo-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/furgoCamper/">
-                                    <img src="img/furgo.png" alt="Error img FurgonetaCamper" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Alquiler Furgoneta</p>
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="abrirModal('ciber')">
+                                        🔍 Ver detalles
+                                    </button>
 
-                                <p class="categoria">Página html del bar de Alquiler de furgoCamper</p>
-                            </div>
-                        </div>
+                                    <a href="https://ciberseguridad.jesuscmweb.com" target="_blank"
+                                        class="btn-proyecto">
+                                        🌐 Ver proyecto
+                                    </a>
 
-                        <!-- Peluquería -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                href="https://peluqueria.jesuscmweb.com">
-                                    <img src="img/peluqueria.png" alt="Error img Peluquería" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Peluquería</p>
-                                <p class="categoria">Página web de Tienda de peluquería</p>
+                                    <a href="https://github.com/jcm201080/log-analyzer-dashboard.git" target="_blank"
+                                        class="btn-repo">
+                                        Código
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -182,160 +222,66 @@
                         <div class="trabajo">
                             <div class="thumb">
                                 <a target="_blank" rel="noopener noreferrer"
-                                href="https://hamburgueseria.jesuscmweb.com">
-                                    <img src="img/burguer.png" alt="Error img Hamburguesería" loading="lazy">
+                                    href="https://hamburgueseria.jesuscmweb.com">
+                                    <img src="img/burguer.png" alt="Aplicación web Flask desplegada en producción"
+                                        loading="lazy">
                                 </a>
                             </div>
+
                             <div class="descripcion">
-                                <p class="nombre">Hamburguesería</p>
-                                <p class="categoria">Aplicación web Flask en producción</p>
+                                <p class="nombre">
+                                    Aplicación Web Flask – Burger's
+                                </p>
+
+                                <p class="categoria">
+                                    Flask · Backend · Autenticación · Base de datos · VPS
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="abrirModal('burger')">
+                                        🔍 Ver detalles
+                                    </button>
+
+
+                                    <a href="https://hamburgueseria.jesuscmweb.com" target="_blank"
+                                        class="btn-proyecto">
+                                        🌐 Ver proyecto
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/Hamburgueseria.git" target="_blank"
+                                        class="btn-repo">
+                                        Código
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
-
-
-
-                        <!--PiterPub-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/piterpub/">
-                                    <img src="img/barPiter.jpg" alt="Error img Bar Piter" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Bar Piter</p>
-
-                                <p class="categoria">Página html del bar de peter hecha con css</p>
-                            </div>
-                        </div>
-
-                        <!--Mis recetas -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/misrecetas/">
-                                    <img src="img/misrecetas.png" alt="Error img Mis Recetas" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Mis Recetas</p>
-                                <p class="categoria">Pagina de mis recetas, hecha en el curso de visual studio</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../pagina web taller/mi-pagina/pagina principal/index.html">-->
-                                <img src="img/taller.png" alt="Error img taller" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Taller </p>
-                                <p class="categoria">Pagina a medio hacer</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a href="../udemy/Diseño Web/practicas/layout/index.html">-->
-                                <img src="img/layout.png" alt="Error img layout" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página Layout</p>
-                                <p class="categoria">Pagina de udemy de layout</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/Bootstrap4/index.html">-->
-                                <img src="img/boostrap4.png" alt="Error img boostrap4" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página boostrap4</p>
-                                <p class="categoria">Pagina de udemy de bootstrap</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/flexbox/index.html">-->
-                                <img src="img/flexbox.png" alt="Error img flexbox" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página flexbox</p>
-                                <p class="categoria">Pagina de udemy de flexbox</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/blog/index.html">-->
-                                <img src="img/blog.png" alt="Error img blog" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página blog</p>
-                                <p class="categoria">Pagina de udemy de blog</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/restaurante/index.html">-->
-                                <img src="img/Restaurante.png" alt="Error img Restaurante" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página Restaurante</p>
-                                <p class="categoria">Pagina de udemy de Restaurante</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FREELANCER_INICO/index.html">-->
-                                <img src="img/freelancer.png" alt="Error img Freelancer" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página Freelancer</p>
-                                <p class="categoria">Pagina de udemy Freelancer</p>
-                            </div>
-                        </div><!--trabajo-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FRONTENDSTORE/index.html">-->
-                                <img src="img/tienda.png" alt="Error img tienda" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página de tienda</p>
-                                <p class="categoria">Pagina de udemy frontendstore</p>
-                            </div>
-                        </div><!--trabajo-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/blogCafe/blogdecafe_inicio/blogdecafe_inicio/index.html">-->
-                                <img src="img/blogCafe.png" alt="Error img Café" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Página BlogCafe</p>
-                                <p class="categoria">Pagina de udemy Css y html</p>
-                            </div>
-                        </div><!--trabajo-->
-
-
-
                     </div>
                 </div>
             </section>
+
+            <!-- ===================== -->
+            <!-- OTROS PROYECTOS -->
+            <!-- ===================== -->
+
+            <section class="otros">
+                <div class="contenedor">
+
+                    <h3 class="titulo">
+                        Otros trabajos y prácticas
+                    </h3>
+
+                    <p class="otros-descripcion">
+                        Proyectos frontend y prácticas de desarrollo web.
+                    </p>
+
+                    <a href="proyectos-web.html" class="btn-otros">
+                        Ver todos los proyectos →
+                    </a>
+
+                </div>
+            </section>
+
+
         </section>
     </main>
     <footer>
@@ -406,20 +352,49 @@
 
     <!-- Contabilizar visitas desde la web principal,  aparece en dasboard juegos -->
     <script>
-    fetch("https://juegos.jesuscmweb.com/api/track", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        ruta: "/",
-        origen: "web_principal"
-    })
-    });
+        fetch("https://juegos.jesuscmweb.com/api/track", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ruta: "/",
+                origen: "web_principal"
+            })
+        });
     </script>
 
 
+    <div id="modalProyecto" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
+
+    <script src="js/proyectos.js"></script>
+
+    <script>
+        (function () {
+
+            const savedLang = localStorage.getItem("preferredLanguage");
+
+            if (savedLang) {
+                if (savedLang === "en" && !window.location.pathname.includes("index-en")) {
+                    window.location.href = "index-en.html";
+                }
+                return;
+            }
+
+            const userLang = navigator.language || navigator.userLanguage;
+
+            if (userLang.startsWith("en")) {
+                window.location.href = "index-en.html";
+            }
+
+        })();
+    </script>
 
 </body>
 

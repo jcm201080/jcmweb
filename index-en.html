@@ -1,3 +1,4 @@
+<!-- INDEX ENGLISH VERSION -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,75 +12,56 @@
 
     <!-- SEO -->
     <meta name="description"
-        content="Professional portfolio of Jesús Castaño. Python developer specialized in Flask, Big Data and real-world VPS deployments.">
-    <title>Jesús Castaño | Python Developer, Flask & Big Data</title>
+        content="Professional portfolio of Jesús Castaño. Python Backend Developer specialized in Flask, real-time systems and data analysis.">
 
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="es" href="https://jesuscmweb.com/index.html">
-    <link rel="alternate" hreflang="en" href="https://jesuscmweb.com/index-en.html">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <title>Jesús Castaño | Python Backend Developer</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCHPSVVD" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <header>
         <div class="contenedor">
             <nav class="menu">
                 <div>
-                    <a href="#acerca-de">About</a>
-                    <a href="#trabajos">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
                     <a href="perfil-en.html">Profile</a>
-                    <a href="#contacto">Contact</a>
+                    <a href="#contact">Contact</a>
                 </div>
 
                 <div class="logo">
-                    <img src="img/logo.jpg" alt="Logo">
+                    <img src="img/logo.jpg" alt="logo">
                 </div>
 
                 <!-- Language switch -->
                 <div class="lang-selector">
-                    <a href="/index.html" lang="es">
-                        <img src="img/banderas/españa.png" alt="Español" width="24">
+                    <a href="index.html" onclick="localStorage.setItem('preferredLanguage','es')">
+                        <img src="img/banderas/españa.png" width="24">
                         ES
                     </a>
                     |
                     <span class="activo" lang="en">
-                        <img src="img/banderas/inglaterra.png" alt="English" width="24">
+                        <img src="img/banderas/inglaterra.png" width="24">
                         EN
                     </span>
-                </div>             
-
-
+                </div>
             </nav>
-            
 
             <div class="contenedor-texto">
                 <div class="texto">
-                    <h1 class="nombre">Jesús Castaño – Python & Big Data Developer</h1>
+                    <h1 class="nombre">Jesús Castaño</h1>
                     <h2 class="profesion">
-                        Python · Flask · Big Data · Real VPS Deployments
+                        Backend Developer · Python · Flask · Real-Time Systems
                     </h2>
+                    <p class="subprofesion">
+                        Modular Architectures · Business Applications · Data Analysis
+                    </p>
                 </div>
             </div>
         </div>
@@ -89,337 +71,275 @@
         <section class="main">
 
             <!-- ABOUT -->
-            <section class="acerca-de" id="acerca-de">
+            <section class="acerca-de" id="about">
                 <div class="contenedor">
                     <div class="foto">
                         <img src="img/mifoto.png?v=1" width="115" alt="Jesús Castaño">
                     </div>
 
                     <div class="texto">
-                        <h3 class="titulo">About</h3>
+                        <h3 class="titulo">About Me</h3>
                         <p>
-                            I'm <strong>Jesús Castaño</strong>, a <strong>Python developer</strong> specialized in
+                            I am <strong>Jesús Castaño</strong>, a <strong>Python Backend Developer</strong> specialized
+                            in
                             <strong>Flask</strong>, <strong>Big Data</strong> and real-world production deployments.
-                            I build complete web applications with databases, user authentication, data analysis,
-                            interactive charts and services deployed on VPS environments.
+                            I design and build complete web applications including authentication systems,
+                            databases, analytics dashboards and scalable modular architectures.
                         </p>
                     </div>
                 </div>
             </section>
 
             <!-- PROJECTS -->
-            <section class="trabajos" id="trabajos">
+            <section class="trabajos" id="projects">
                 <div class="contenedor">
-                    <h3 class="titulo">Projects</h3>
+
+                    <h3 class="titulo">Featured Projects</h3>
 
                     <div class="contenedor-trabajos">
 
-                        <!-- IT Management -->
+                        <!-- ERP -->
                         <div class="trabajo">
                             <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://informatica.jesuscmweb.com">
-                                    <img src="img/programainfor.png"
-                                        alt="IT management project built with Python" loading="lazy">
+                                <a target="_blank" href="https://informatica.jesuscmweb.com">
+                                    <img src="img/programainfor.png" alt="Enterprise Management System" loading="lazy">
                                 </a>
                             </div>
-                            <div class="descripcion">
-                                <p class="nombre">IT Management System (Python)</p>
-                                <p class="categoria">Final project developed during professional training</p>
-                            </div>
-                        </div>
 
-                        <!-- Games -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://juegos.jesuscmweb.com">
-                                    <img src="img/juegosjcm.png" alt="Web games project" loading="lazy">
-                                </a>
-                            </div>
                             <div class="descripcion">
-                                <p class="nombre">JCM Games – JavaScript</p>
-                                <p class="categoria">Web games developed using HTML, CSS and JavaScript</p>
-                            </div>
-                        </div>
-
-                        <!-- Cybersecurity -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://ciberseguridad.jesuscmweb.com">
-                                    <img src="img/ciberseguridad.png" alt="Cybersecurity project" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Cybersecurity Project</p>
-                                <p class="categoria">
-                                    Log analysis, web security and incident detection · Python
+                                <p class="nombre">
+                                    Enterprise Management System (ERP)
                                 </p>
+
+                                <p class="categoria">
+                                    Flask · SQLAlchemy · Roles · Inventory · Dashboard · Deployment
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="openModal('erp')">
+                                        🔍 View details
+                                    </button>
+
+                                    <a href="https://informatica.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                        🌐 View project
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/ProyectoInformatica.git" target="_blank"
+                                        class="btn-repo">
+                                        Code
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Camper Van -->
+                        <!-- GAMES -->
                         <div class="trabajo">
                             <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/furgoCamper/">
-                                    <img src="img/furgo.png" alt="Camper van rental website" loading="lazy">
+                                <a target="_blank" href="https://juegos.jesuscmweb.com">
+                                    <img src="img/juegosjcm.png" alt="Interactive Game Platform" loading="lazy">
                                 </a>
                             </div>
+
                             <div class="descripcion">
-                                <p class="nombre">Camper Van Rental</p>
-                                <p class="categoria">Static HTML website</p>
+                                <p class="nombre">
+                                    Interactive Game Platform – JCM
+                                </p>
+
+                                <p class="categoria">
+                                    Flask · Socket.IO · Real-Time · Modular Architecture · VPS
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="openModal('juegos')">
+                                        🔍 View details
+                                    </button>
+
+                                    <a href="https://juegos.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                        🌐 View project
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/juegosJCM.git" target="_blank"
+                                        class="btn-repo">
+                                        Code
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Barber Shop -->
+                        <!-- CYBERSECURITY -->
                         <div class="trabajo">
                             <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://peluqueria.jesuscmweb.com">
-                                    <img src="img/peluqueria.png" alt="Barber shop website" loading="lazy">
+                                <a target="_blank" href="https://ciberseguridad.jesuscmweb.com">
+                                    <img src="img/ciberseguridad.png" alt="Log Analysis System" loading="lazy">
                                 </a>
                             </div>
+
                             <div class="descripcion">
-                                <p class="nombre">Barber Shop</p>
-                                <p class="categoria">Business website</p>
+                                <p class="nombre">
+                                    Log Analysis System – Cybersecurity
+                                </p>
+
+                                <p class="categoria">
+                                    Python · RegEx · Large-scale Processing · Anomaly Detection
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="openModal('ciber')">
+                                        🔍 View details
+                                    </button>
+
+                                    <a href="https://ciberseguridad.jesuscmweb.com" target="_blank"
+                                        class="btn-proyecto">
+                                        🌐 View project
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/log-analyzer-dashboard.git" target="_blank"
+                                        class="btn-repo">
+                                        Code
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Burger App -->
+                        <!-- BURGER -->
                         <div class="trabajo">
                             <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://hamburgueseria.jesuscmweb.com">
-                                    <img src="img/burguer.png" alt="Burger restaurant web app" loading="lazy">
+                                <a target="_blank" href="https://hamburgueseria.jesuscmweb.com">
+                                    <img src="img/burguer.png" alt="Flask Web Application" loading="lazy">
                                 </a>
                             </div>
+
                             <div class="descripcion">
-                                <p class="nombre">Burger Restaurant</p>
-                                <p class="categoria">Flask web application in production</p>
+                                <p class="nombre">
+                                    Flask Web Application – Burger's
+                                </p>
+
+                                <p class="categoria">
+                                    Flask · Backend · Authentication · Database · VPS
+                                </p>
+
+                                <div class="acciones">
+                                    <button class="btn-detalles" onclick="openModal('burger')">
+                                        🔍 View details
+                                    </button>
+
+                                    <a href="https://hamburgueseria.jesuscmweb.com" target="_blank"
+                                        class="btn-proyecto">
+                                        🌐 View project
+                                    </a>
+
+                                    <a href="https://github.com/jcm201080/Hamburgueseria.git" target="_blank"
+                                        class="btn-repo">
+                                        Code
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
-                        <!--  Bar Peter-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/piterpub/">
-                                    <img src="img/barPiter.jpg" alt="Bar Piter website" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Bar Piter</p>
-                                <p class="categoria">Static HTML & CSS website for a bar</p>
-                            </div>
-                        </div>
-
-                        <!--Mis recetas-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://jcm201080.github.io/misrecetas/">
-                                    <img src="img/misrecetas.png" alt="My Recipes website" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">My Recipes</p>
-                                <p class="categoria">Personal recipe website developed during a web development course</p>
-                            </div>
-                        </div>
-
-                        <!--Taller-->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <img src="img/taller.png" alt="Workshop website project" loading="lazy">
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Workshop Website</p>
-                                <p class="categoria">Work in progress project</p>
-                            </div>
-                        </div>
-
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a href="../udemy/Diseño Web/practicas/layout/index.html">-->
-                                <img src="img/layout.png" alt="Layout design page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Layout Page</p>
-                                <p class="categoria">Layout design practice from Udemy course</p>
-                            </div>
-                        </div>
-
-
-                        
-
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/Bootstrap4/index.html">-->
-                                <img src="img/boostrap4.png" alt="Bootstrap 4 page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Bootstrap 4 Page</p>
-                                <p class="categoria">Bootstrap practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/flexbox/index.html">-->
-                                <img src="img/flexbox.png" alt="Flexbox layout page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Flexbox Page</p>
-                                <p class="categoria">Flexbox layout practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/blog/index.html">-->
-                                <img src="img/blog.png" alt="Blog layout page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Blog Page</p>
-                                <p class="categoria">Blog layout practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemy/Diseño Web/practicas/restaurante/index.html">-->
-                                <img src="img/Restaurante.png" alt="Restaurant website page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Restaurant Website</p>
-                                <p class="categoria">Restaurant website practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FREELANCER_INICO/index.html">-->
-                                <img src="img/freelancer.png" alt="Freelancer website page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Freelancer Website</p>
-                                <p class="categoria">Freelancer website practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/FRONTENDSTORE/index.html">-->
-                                <img src="img/tienda.png" alt="Online store page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Online Store</p>
-                                <p class="categoria">Frontend store practice from Udemy course</p>
-                            </div>
-                        </div>
-
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <!--<a target="_blank" rel="noopener noreferrer" href="../udemyCURSO2/blogCafe/blogdecafe_inicio/blogdecafe_inicio/index.html">-->
-                                <img src="img/blogCafe.png" alt="Coffee blog page" loading="lazy">
-                                {# </a> #}
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Coffee Blog</p>
-                                <p class="categoria">CSS & HTML blog practice from Udemy course</p>
-                            </div>
-                        </div>
-
 
                     </div>
                 </div>
             </section>
+
+            <!-- ===================== -->
+            <!-- OTHER PROJECTS -->
+            <!-- ===================== -->
+
+            <section class="otros">
+                <div class="contenedor">
+
+                    <h3 class="titulo">
+                        Other Work & Practice Projects
+                    </h3>
+
+                    <p class="otros-descripcion">
+                        Frontend projects and web development practice work.
+                    </p>
+
+                    <a href="proyectos-web-en.html" class="btn-otros">
+                        View all projects →
+                    </a>
+
+                </div>
+            </section>
+
 
         </section>
     </main>
 
     <footer>
 
-        <!-- CONTACT -->
+        <!-- CONTACTO -->
         <section class="contacto" id="contacto">
             <div class="contenedor">
-                <h3 class="titulo">Contact</h3>
+                <h3 class="titulo">Contacto</h3>
 
                 <form class="formulario" action="https://formspree.io/f/meeeoylr" method="POST">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="email" placeholder="Email" required>
 
-                    <input type="hidden" name="_redirect"
-                        value="https://jesuscmweb.com/gracias.html">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="email" name="correo" placeholder="Correo" required>
+                    <input type="hidden" name="_redirect" value="https://jesuscmweb.com/gracias.html">
 
-                    <textarea name="message" placeholder="Message" required></textarea>
 
-                    <input type="hidden" name="_subject" value="New message from portfolio">
+                    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+
+                    <!-- Asunto del correo -->
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
+
+                    <!-- Opcional: desactivar captcha -->
                     <input type="hidden" name="_captcha" value="false">
 
-                    <input class="boton" type="submit" value="Send">
+                    <input class="boton" type="submit" value="Enviar">
                 </form>
 
+                <!-- Email visible como alternativa -->
                 <p class="contacto-extra">
-                    Or contact me directly at
+                    O escríbeme directamente a
                     <a href="mailto:jcm201080@gmail.com">jcm201080@gmail.com</a>
                     <br>
-                    or call me at
-                    <a href="tel:+34635487063">+34 635 487 063</a>
+                    o llámame al
+                    <a href="tel:+34635 487 063">+34 635 487 063</a>
+
                 </p>
             </div>
         </section>
 
-        <!-- SOCIAL -->
+        <!-- REDES SOCIALES -->
         <section class="redes-sociales">
             <div class="contenedor">
+
                 <a href="https://github.com/jcm201080" target="_blank" rel="noopener noreferrer" class="github">
                     <i class="fa fa-github"></i>
                 </a>
 
-                <a href="https://www.linkedin.com/in/jesus-castano-822408361" target="_blank"
-                    rel="noopener noreferrer" class="linkedin">
+                <a href="https://www.linkedin.com/in/jesus-castano-822408361" target="_blank" rel="noopener noreferrer"
+                    class="linkedin">
                     <i class="fa fa-linkedin"></i>
                 </a>
+
             </div>
         </section>
 
         <!-- COPYRIGHT -->
         <div class="final">
-            © 2021–<span id="year"></span> Jesús Castaño · Personal Portfolio
+            © 2021–<span id="year"></span> Jesús Castaño · Portfolio personal
         </div>
 
     </footer>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/efectos.js"></script>
+    <!-- Modal -->
+    <div id="modalProyecto" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 
-    <!-- Track visits -->
-    <script>
-        fetch("https://juegos.jesuscmweb.com/api/track", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ruta: "/index-en",
-                origen: "web_principal"
-            })
-        });
-    </script>
+    <script src="js/proyectos-en.js"></script>
 
 </body>
+
 </html>
