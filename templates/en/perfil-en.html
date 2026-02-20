@@ -1,54 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Professional Profile | Jesús Castaño</title>
-    <meta name="description"
-        content="Backend Developer specialized in Python and Flask. Modular architectures, real-time systems and data analysis.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+{% block title %}
+Perfil Profesional | Jesús Castaño
+{% endblock %}
 
-<body>
-
-    <header>
-        <div class="contenedor">
-            <nav class="menu">
-                <div>
-                    <a href="index-en.html#acerca-de">About</a>
-                    <a href="index-en.html#trabajos">Projects</a>
-                    <a href="perfil-en.html" class="activo">Profile</a>
-                    <a href="index-en.html#contacto">Contact</a>
-                </div>
-                <div class="logo">
-                    <img src="img/logo.jpg" alt="Logo">
-                </div>
-
-                <div class="lang-selector">
-                    <a href="/perfil.html" lang="es">
-                        <img src="img/banderas/españa.png" alt="Spanish" width="24">
-                        ES
-                    </a>
-                    |
-                    <span class="activo" lang="en">
-                        <img src="img/banderas/inglaterra.png" alt="English" width="24">
-                        EN
-                    </span>
-                </div>
-            </nav>
-
-            <div class="contenedor-texto">
-                <div class="texto">
-                    <h1 class="nombre">Jesús Castaño</h1>
-                    <h2 class="profesion">
-                        Backend Python Developer · APIs · Real-Time Systems · Data Processing
-                    </h2>
-
-                </div>
-            </div>
-        </div>
-    </header>
+{% block content %}
 
     <main class="perfil">
 
@@ -152,6 +108,15 @@
             </p>
         </section>
 
+        <!--Pagina jesuscmweb-->
+        <h3>Portfolio Architecture</h3>
+        <p>
+        This portfolio is developed using Flask with a modular template
+        structure (Jinja2) and follows a clean routing architecture.
+        It is deployed in a production Linux VPS environment using
+        Gunicorn and Nginx.
+        </p>
+
         <!-- TECHNICAL APPROACH -->
         <section class="perfil-bloque">
             <h2>Technical Approach</h2>
@@ -193,70 +158,4 @@
 
     </main>
 
-    <footer>
-
-        <!-- CONTACTO -->
-        <section class="contacto" id="contacto">
-            <div class="contenedor">
-                <h3 class="titulo">Contacto</h3>
-
-                <form class="formulario" action="https://formspree.io/f/meeeoylr" method="POST">
-
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="correo" placeholder="Correo" required>
-                    <input type="hidden" name="_redirect" value="https://jesuscmweb.com/gracias.html">
-
-
-                    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-
-                    <!-- Asunto del correo -->
-                    <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
-
-                    <!-- Opcional: desactivar captcha -->
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <input class="boton" type="submit" value="Enviar">
-                </form>
-
-                <!-- Email visible como alternativa -->
-                <p class="contacto-extra">
-                    O escríbeme directamente a
-                    <a href="mailto:jcm201080@gmail.com">jcm201080@gmail.com</a>
-                    <br>
-                    o llámame al
-                    <a href="tel:+34635 487 063">+34 635 487 063</a>
-
-                </p>
-            </div>
-        </section>
-
-        <!-- REDES SOCIALES -->
-        <section class="redes-sociales">
-            <div class="contenedor">
-
-                <a href="https://github.com/jcm201080" target="_blank" rel="noopener noreferrer" class="github">
-                    <i class="fa fa-github"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/jesus-castano-822408361" target="_blank" rel="noopener noreferrer"
-                    class="linkedin">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- COPYRIGHT -->
-        <div class="final">
-            © 2021–<span id="year"></span> Jesús Castaño · Portfolio personal
-        </div>
-
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-
-</body>
-
-</html>
+ {% endblock %}

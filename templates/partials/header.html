@@ -1,0 +1,76 @@
+<header>
+    <div class="contenedor">
+        <nav class="menu">
+
+            <div>
+                {% if lang == "en" %}
+                    <a href="{{ url_for('index_en') }}#about">About</a>
+                    <a href="{{ url_for('index_en') }}#projects">Projects</a>
+                    <a href="{{ url_for('perfil_en') }}">Profile</a>
+                    <a href="{{ url_for('index_en') }}#contact">Contact</a>
+                {% else %}
+                    <a href="{{ url_for('index') }}#acerca-de">Acerca de</a>
+                    <a href="{{ url_for('index') }}#trabajos">Trabajos</a>
+                    <a href="{{ url_for('perfil') }}">Perfil</a>
+                    <a href="{{ url_for('index') }}#contacto">Contacto</a>
+                {% endif %}
+            </div>
+
+            <div class="logo">
+                <a href="{{ url_for('index_en') if lang == 'en' else url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo">
+                </a>
+            </div>
+
+            <div class="lang-selector">
+
+                {% if lang == "en" %}
+                    <a href="{{ url_for('index') }}">
+                        <img src="{{ url_for('static', filename='img/banderas/españa.png') }}" width="24">
+                        ES
+                    </a>
+                    |
+                    <span class="activo">
+                        <img src="{{ url_for('static', filename='img/banderas/inglaterra.png') }}" width="24">
+                        EN
+                    </span>
+                {% else %}
+                    <span class="activo">
+                        <img src="{{ url_for('static', filename='img/banderas/españa.png') }}" width="24">
+                        ES
+                    </span>
+                    |
+                    <a href="{{ url_for('index_en') }}">
+                        <img src="{{ url_for('static', filename='img/banderas/inglaterra.png') }}" width="24">
+                        EN
+                    </a>
+                {% endif %}
+
+            </div>
+
+        </nav>
+
+        <div class="contenedor-texto">
+            <div class="texto">
+                <h1 class="nombre">Jesús Castaño</h1>
+
+                {% if lang == "en" %}
+                    <h2 class="profesion">
+                        Backend Python Developer · APIs · Real-Time Systems · Data Processing
+                    </h2>
+                    <p class="subprofesion">
+                        Modular Architectures · Enterprise Applications · Data Analytics
+                    </p>
+                {% else %}
+                    <h2 class="profesion">
+                        Backend Python Developer · APIs · Real-Time Systems · Data Processing
+                    </h2>
+                    <p class="subprofesion">
+                        Arquitecturas modulares · Aplicaciones empresariales · Análisis de datos
+                    </p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</header>

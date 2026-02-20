@@ -1,136 +1,190 @@
-# 🌐 JCMWEB – Personal Portfolio
+🌐 JCMWEB – Personal Portfolio (Flask Version)
 
-Professional portfolio website of **Jesús Castaño**, Python Backend Developer specialized in Flask, Big Data and real-world production deployments.
+Professional portfolio website of Jesús Castaño, Python Backend Developer specialized in Flask, Big Data and real-world production deployments.
 
-🔗 Live site: https://jesuscmweb.com  
+🔗 Live site: https://jesuscmweb.com
 
----
+🚀 Overview
 
-## 🚀 Overview
+JCMWEB is a bilingual (Spanish / English) portfolio application built with Flask, designed to showcase:
 
-This project is a bilingual (Spanish / English) personal portfolio designed to showcase:
+Backend systems deployed in VPS environments
 
-- Backend projects deployed in VPS environments
-- Real-world Flask applications
-- Data analysis and log processing systems
-- Frontend practice and web development evolution
+Real-world Flask applications
 
-The website is fully responsive and structured with modular CSS and JavaScript.
+Data analysis & log processing engines
 
----
+Real-time systems using Socket.IO
 
-## 🛠 Tech Stack
+Frontend evolution and structured UI projects
 
-### Frontend
-- HTML5
-- CSS3 (modular architecture)
-- JavaScript (vanilla + jQuery)
-- Responsive design
-- Font Awesome
+The project follows a clean MVC-like structure using Flask routing and modular templates.
 
-### Backend Projects (Showcased)
-- Python
-- Flask
-- SQLAlchemy
-- Socket.IO
-- VPS Deployment
-- Log analysis & anomaly detection
+🛠 Tech Stack
+Backend
 
----
+Python 3.12
 
-## 📁 Project Structure
+Flask
 
+Jinja2 templating
 
+Modular routing
 
-JCMWEB/
+VPS Deployment
+
+Frontend
+
+HTML5
+
+CSS3 (modular architecture)
+
+JavaScript (vanilla)
+
+Responsive design
+
+Font Awesome
+
+jQuery
+
+Showcased Technologies
+
+Flask Blueprints
+
+SQLAlchemy
+
+Socket.IO
+
+Chart.js
+
+Matplotlib
+
+Log analysis engines
+
+Linux VPS deployment
+
+📁 Project Structure
+jcmweb/
 │
-├── css/
-│ ├── normalize.css
-│ ├── layout.css
-│ ├── header.css
-│ ├── footer.css
-│ ├── trabajos.css
-│ ├── perfil.css
-│ ├── mediaqueries.css
-│ └── ...
+├── app.py
+├── requirements.txt
+├── README.md
 │
-├── js/
-│ ├── efectos.js
-│ ├── idioma.js
-│ ├── proyectos.js
-│ ├── proyectos-en.js
-│ ├── tracking.js
-│ └── jquery-3.6.0.min.js
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── perfil.html
+│   ├── proyectos-web.html
+│   │
+│   ├── en/
+│   │   ├── index-en.html
+│   │   ├── perfil-en.html
+│   │   ├── proyectos-web-en.html
+│   │
+│   └── partials/
+│       ├── header.html
+│       ├── footer.html
+│       └── hero.html
 │
-├── img/
-├── fonts/
+├── static/
+│   ├── css/
+│   ├── js/
+│   ├── img/
+│   └── fonts/
 │
-├── index.html
-├── index-en.html
-├── perfil.html
-├── perfil-en.html
-├── proyectos-web.html
-├── proyectos-web-en.html
-└── gracias.html
+└── venv/
+🌍 Language System
 
+The application supports bilingual navigation using Flask routing:
 
+Spanish → /
 
----
+English → /en
 
-## 🌍 Language System
+Language is controlled server-side via route handling and template variables (lang).
 
-The website supports automatic language detection:
+No automatic browser redirection is used — language switching is handled manually through navigation.
 
-- Detects browser language
-- Allows manual switch (ES / EN)
-- Stores preference in localStorage
+🎯 Key Features
 
----
+Featured backend project showcase
 
-## 🎯 Key Features
+Modular CSS architecture
 
-- Featured project section (curated selection)
-- Modular CSS architecture
-- Structured project separation
-- Contact form integration (Formspree)
-- External project deployment links
-- GitHub repository integration
-- Lightweight analytics tracking system
+Modal-based project detail system
 
----
+Bilingual navigation system
 
-## 📦 Deployment
+Clean Flask routing structure
 
-The site is deployed in a production VPS environment.
+Responsive design
 
-To run locally:
+VPS production deployment
 
-1. Clone repository
-2. Open with Live Server (VSCode) or local server
-3. Navigate to `index.html`
+GitHub integration
 
----
+External project linking
 
-## 📌 Future Improvements
+🖥 Run Locally
 
-- JS module consolidation
-- Performance optimization (Lighthouse 95+ target)
-- Image optimization
-- Accessibility improvements
-- SEO structured data enhancement
+Clone repository:
 
----
+git clone https://github.com/jcm201080/jcmweb.git
+cd jcmweb
 
-## 👤 Author
+Create virtual environment:
 
-**Jesús Castaño**  
-Python Backend Developer  
+python3 -m venv venv
+source venv/bin/activate
 
-- GitHub: https://github.com/jcm201080  
-- LinkedIn: https://www.linkedin.com/in/jesus-castano-822408361  
+Install dependencies:
 
----
+pip install -r requirements.txt
 
-## 📄 License
+Run application:
 
-This project is for personal portfolio use.
+python app.py
+
+Open in browser:
+
+http://127.0.0.1:5000
+📦 Deployment
+
+The site is deployed on a production VPS environment.
+
+Deployment stack includes:
+
+Linux server
+
+Gunicorn
+
+Nginx reverse proxy
+
+HTTPS (SSL)
+
+📌 Future Improvements
+
+Internationalization system (Flask-Babel)
+
+JS consolidation into ES modules
+
+Performance optimization (Lighthouse 95+ target)
+
+Image compression optimization
+
+Accessibility improvements (WCAG compliance)
+
+SEO structured data implementation
+
+👤 Author
+
+Jesús Castaño
+Python Backend Developer
+
+GitHub: https://github.com/jcm201080
+
+LinkedIn: https://www.linkedin.com/in/jesus-castano-822408361
+
+📄 License
+
+This project is for personal portfolio and professional showcase purposes.

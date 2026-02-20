@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block title %}
+Otros Proyectos Web | Jesús Castaño
+{% endblock %}
+
+{% block content %}
+
+<main>
+<section class="main">
+<section class="trabajos">
+<div class="contenedor">
+
+    <!-- ===================== -->
+    <!-- SITIOS WEB FRONTEND -->
+    <!-- ===================== -->
+
+    <h3 class="titulo">Sitios Web Frontend</h3>
+    <div class="contenedor-trabajos">
+
+        <!-- Furgo -->
+        <div class="trabajo">
+            <div class="thumb">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://jcm201080.github.io/furgoCamper/">
+                    <img src="{{ url_for('static', filename='img/furgo.png') }}" alt="Web Alquiler Furgoneta" loading="lazy">
+                </a>
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Alquiler Furgoneta</p>
+                <p class="categoria">HTML · CSS · Diseño Responsive</p>
+            </div>
+        </div>
+
+        <!-- Peluquería -->
+        <div class="trabajo">
+            <div class="thumb">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://peluqueria.jesuscmweb.com">
+                    <img src="{{ url_for('static', filename='img/peluqueria.png') }}" alt="Web Peluquería" loading="lazy">
+                </a>
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Web Peluquería</p>
+                <p class="categoria">Web corporativa · HTML · CSS</p>
+            </div>
+        </div>
+
+        <!-- Bar Piter -->
+        <div class="trabajo">
+            <div class="thumb">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://jcm201080.github.io/piterpub/">
+                    <img src="{{ url_for('static', filename='img/barPiter.jpg') }}" alt="Web Bar Piter" loading="lazy">
+                </a>
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Bar Piter</p>
+                <p class="categoria">Sitio estático · Maquetación CSS</p>
+            </div>
+        </div>
+
+        <!-- Mis Recetas -->
+        <div class="trabajo">
+            <div class="thumb">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://jcm201080.github.io/misrecetas/">
+                    <img src="{{ url_for('static', filename='img/misrecetas.png') }}" alt="Web Mis Recetas" loading="lazy">
+                </a>
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Mis Recetas</p>
+                <p class="categoria">Estructura HTML · Estilos CSS</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ===================== -->
+    <!-- PRÁCTICAS DE MAQUETACIÓN -->
+    <!-- ===================== -->
+
+    <h3 class="titulo">Prácticas de Maquetación</h3>
+    <div class="contenedor-trabajos">
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/layout.png') }}" alt="Layout CSS" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Sistema Layout</p>
+                <p class="categoria">Maquetación avanzada con CSS</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/boostrap4.png') }}" alt="Bootstrap 4" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Bootstrap 4</p>
+                <p class="categoria">Grid System y Componentes</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/flexbox.png') }}" alt="Flexbox" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Flexbox</p>
+                <p class="categoria">Distribución flexible de elementos</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/blog.png') }}" alt="Blog HTML CSS" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Blog</p>
+                <p class="categoria">Diseño estructurado HTML + CSS</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ===================== -->
+    <!-- PROYECTOS DE CURSO -->
+    <!-- ===================== -->
+
+    <h3 class="titulo">Proyectos de Formación</h3>
+    <div class="contenedor-trabajos">
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/Restaurante.png') }}" alt="Web Restaurante" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Restaurante</p>
+                <p class="categoria">Proyecto formativo · HTML & CSS</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/freelancer.png') }}" alt="Freelancer" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Freelancer</p>
+                <p class="categoria">Landing page · Diseño UI</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/tienda.png') }}" alt="Frontend Store" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Frontend Store</p>
+                <p class="categoria">Interfaz e-commerce</p>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="thumb">
+                <img src="{{ url_for('static', filename='img/blogCafe.png') }}" alt="Blog Café" loading="lazy">
+            </div>
+            <div class="descripcion">
+                <p class="nombre">Blog Café</p>
+                <p class="categoria">Estilizado avanzado con CSS</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+</section>
+</main>
+
+
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/proyectos.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tracking.js') }}"></script>
+<script src="{{ url_for('static', filename='js/idioma.js') }}"></script>
+{% endblock %}

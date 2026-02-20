@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}
+Perfil Profesional | Jesús Castaño
+{% endblock %}
+
+{% block content %}
+
+<main class="perfil">
+
+    <!-- TÍTULO DE PÁGINA -->
+    <section class="perfil-header">
+        <div class="contenedor">
+            <h1>Perfil Profesional</h1>
+            <p class="subtitulo">
+                Backend Python Developer · Arquitecturas modulares · Sistemas en tiempo real
+            </p>
+        </div>
+    </section>
+
+
+    <!-- RESUMEN -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Resumen profesional</h2>
+
+            <p>
+                Backend Python Developer con experiencia en diseño de aplicaciones modulares
+                basadas en Flask, construcción de APIs REST y desarrollo de sistemas en tiempo real
+                mediante WebSockets (Flask-SocketIO).
+            </p>
+
+            <p>
+                Formación sólida en Estadística y Big Data, con experiencia en procesamiento
+                y transformación de datos utilizando Pandas y PySpark.
+                Acostumbrado a trabajar en entornos Linux, despliegue en VPS
+                y estructuración de proyectos por capas.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- STACK TECNOLÓGICO -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Stack Tecnológico</h2>
+
+            <ul class="lista-tecnologias">
+                <li><strong>Backend:</strong> Python, Flask, SQLAlchemy, REST APIs</li>
+                <li><strong>Real-Time:</strong> Flask-SocketIO, WebSockets</li>
+                <li><strong>Databases:</strong> SQLite, MySQL</li>
+                <li><strong>Data Processing:</strong> Pandas, PySpark</li>
+                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+                <li><strong>Infrastructure:</strong> Linux, VPS deployment, Git, GitHub</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- EXPERIENCIA -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Experiencia en Desarrollo</h2>
+
+            <div class="item">
+                <h3>Plataforma de Juegos Online – Arquitectura Modular</h3>
+                <p><strong>Stack:</strong> Python · Flask · Flask-SocketIO · SQLite · VPS Linux</p>
+                <p>
+                    Desarrollo de una plataforma web basada en Flask con
+                    arquitectura por dominios, separación de lógica de negocio,
+                    gestión de usuarios y comunicación en tiempo real mediante WebSockets.
+                </p>
+                <p>
+                    Configuración diferenciada desarrollo/producción,
+                    despliegue en VPS y trabajo en entorno Linux.
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>Sistema de Gestión Empresarial – Tienda Informática</h3>
+                <p><strong>Stack:</strong> Flask · SQLAlchemy · SQLite · Chart.js · Matplotlib</p>
+                <p>
+                    Aplicación web completa con autenticación,
+                    control de roles (admin/cliente),
+                    gestión de productos, ventas y compras,
+                    control de stock y visualización de métricas.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BIG DATA -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Proyecto Big Data – Sector Sanitario</h2>
+
+            <p><strong>Stack:</strong> Python · Pandas · PySpark · Linux</p>
+
+            <p>
+                Participación en proyecto de análisis de datos en el ámbito sanitario.
+                Procesamiento de datasets de gran volumen utilizando Pandas y PySpark,
+                limpieza y normalización de datos y generación de métricas.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- CIBERSEGURIDAD -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Proyecto de Ciberseguridad – Análisis de Logs</h2>
+
+            <p><strong>Stack:</strong> Python · Pandas · Expresiones Regulares · Linux</p>
+
+            <ul>
+                <li>Parsing de logs mediante Expresiones Regulares.</li>
+                <li>Clasificación de amenazas por frecuencia y origen.</li>
+                <li>Identificación de IPs sospechosas.</li>
+                <li>Generación automatizada de resúmenes técnicos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Página jesuscmweb-->
+    <h3>Arquitectura del Portfolio</h3>
+    <p>
+    Este portfolio está desarrollado con Flask utilizando una estructura
+    modular de plantillas (Jinja2) y una arquitectura de rutas limpia.
+    Sigue principios de organización escalable y separación de responsabilidades.
+    Se encuentra desplegado en un entorno de producción sobre un VPS Linux
+    utilizando Gunicorn y Nginx.
+    </p>
+
+
+    <!-- FORMACIÓN -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Formación</h2>
+
+            <div class="item">
+                <h3>Diplomado en Estadística</h3>
+                <span>Universidad de Sevilla · 2008 – 2012</span>
+            </div>
+
+            <div class="item">
+                <h3>Máster en Prevención de Riesgos Laborales</h3>
+                <span>Universidad Rey Juan Carlos · 2023 – 2024</span>
+            </div>
+
+            <div class="item">
+                <h3>Especialización en Python y Big Data</h3>
+                <span>Tokio School · Cedeco · 2025</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- IDIOMAS -->
+    <section class="perfil-bloque">
+        <div class="contenedor">
+            <h2>Idiomas</h2>
+
+            <ul>
+                <li>Español: Nativo</li>
+                <li>Inglés: Nivel intermedio</li>
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

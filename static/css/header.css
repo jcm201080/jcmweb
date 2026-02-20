@@ -5,7 +5,7 @@ header{
     max-height: 600px;
 }
 header .menu{
-    margin: 40px 0;
+    margin: 10px 0;
     text-align: right;
 }
 .logo{
@@ -31,7 +31,7 @@ header .contenedor-texto {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 190px 0;
+    margin: 100px 0 140px 0;
 }
 header .contenedor-texto .texto{
     border: 2px solid rgba(255,255,255,0.5);
