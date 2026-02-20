@@ -11,6 +11,10 @@ function abrirModal(tipo) {
                 <li>Gestión de compras y proveedores</li>
                 <li>Dashboard con métricas (Chart.js & Matplotlib)</li>
                 <li>Deploy en Render</li>
+                <li>Separación por Blueprints y capas</li>
+                <li>Validaciones backend</li>
+                <li>Gestión de sesiones segura</li>
+
             </ul>
         `,
         juegos: `
@@ -22,6 +26,9 @@ function abrirModal(tipo) {
                 <li>Ranking persistente</li>
                 <li>Arquitectura modular</li>
                 <li>Deploy en VPS</li>
+                <li>Gestión de salas dinámicas</li>
+                <li>Sincronización estado servidor-cliente</li>
+
             </ul>
         `,
         ciber: `
@@ -32,6 +39,8 @@ function abrirModal(tipo) {
                 <li>Expresiones regulares avanzadas</li>
                 <li>Generación de métricas</li>
                 <li>Arquitectura modular en Python</li>
+                <li>Parsing estructurado de logs (Apache/Nginx)</li>
+                <li>Detección de patrones sospechosos</li>
             </ul>
         `,
         burger: `
