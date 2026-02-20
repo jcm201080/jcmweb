@@ -40,6 +40,15 @@ def perfil_en():
 def proyectos_web_en():
     return render_template("en/proyectos-web-en.html", lang="en")
 
+@app.route("/gracias")
+def gracias():
+    return render_template("gracias.html", lang="es")
+
+
+@app.route("/en/thanks")
+def thanks_en():
+    return render_template("en/gracias-en.html", lang="en")
+
 
 # -------------------------
 # RUN

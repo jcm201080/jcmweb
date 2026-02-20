@@ -10,7 +10,11 @@
 
                     <input type="text" name="nombre" placeholder="Nombre" required>
                     <input type="email" name="correo" placeholder="Correo" required>
-                    <input type="hidden" name="_redirect" value="https://jesuscmweb.com/gracias.html">
+                    {% if lang == "en" %}
+                        <input type="hidden" name="_next" value="{{ url_for('thanks_en', _external=True) }}">
+                    {% else %}
+                        <input type="hidden" name="_next" value="{{ url_for('gracias', _external=True) }}">
+                    {% endif %}
 
 
                     <textarea name="mensaje" placeholder="Mensaje" required></textarea>
