@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Panel de Visitas | Admin
+{% endblock %}
+
+{% block content %}
+
+<section class="admin-visitas-container">
+
+    <h1>📊 Panel de Visitas</h1>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Total visitas</h3>
+            <p>{{ total_visitas }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Usuarios únicos (IP)</h3>
+            <p>{{ visitas_unicas }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Visitas hoy</h3>
+            <p>{{ visitas_hoy }}</p>
+        </div>
+
+    </div>
+
+    <div class="tabla-rutas">
+        <h2>Top 5 rutas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ruta</th>
+                    <th>Visitas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ruta, total in top_rutas %}
+                <tr>
+                    <td>{{ ruta }}</td>
+                    <td>{{ total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</section>
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% endblock %}

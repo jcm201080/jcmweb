@@ -1,0 +1,46 @@
+.admin-visitas-container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(0,0,0,0.6);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.stat-card p {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.tabla-rutas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-rutas th,
+.tabla-rutas td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.tabla-rutas th {
+    text-align: left;
+}

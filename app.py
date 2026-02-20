@@ -1,8 +1,42 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import os
+from db import db, Visita
+from datetime import datetime
 
 app = Flask(__name__)
 
+# Configuración SQLite
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///visitas.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db.init_app(app)
+
+with app.app_context():
+    db.create_all()
+
+# -------------------------
+# CONTROL DE VISITAS
+# -------------------------
+
+@app.before_request
+def registrar_visita():
+    if request.method != "GET":
+        return
+
+    if request.path.startswith("/static"):
+        return
+
+    ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+    nueva_visita = Visita(
+        ip=ip,
+        user_agent=request.headers.get("User-Agent"),
+        ruta=request.path,
+        fecha=datetime.utcnow()
+    )
+
+    db.session.add(nueva_visita)
+    db.session.commit()
 # -------------------------
 # ROUTES - ESPAÑOL
 # -------------------------
@@ -48,6 +82,36 @@ def gracias():
 @app.route("/en/thanks")
 def thanks_en():
     return render_template("en/gracias-en.html", lang="en")
+
+
+from sqlalchemy import func
+
+@app.route("/admin/visitas")
+def admin_visitas():
+    total_visitas = Visita.query.count()
+
+    visitas_unicas = db.session.query(
+        Visita.ip
+    ).distinct().count()
+
+    visitas_hoy = db.session.query(func.count(Visita.id)).filter(
+        func.date(Visita.fecha) == func.current_date()
+    ).scalar()
+
+    top_rutas = db.session.query(
+        Visita.ruta,
+        func.count(Visita.id).label("total")
+    ).group_by(Visita.ruta).order_by(func.count(Visita.id).desc()).limit(5).all()
+
+    return render_template(
+        "admin_visitas.html",
+        total_visitas=total_visitas,
+        visitas_unicas=visitas_unicas,
+        visitas_hoy=visitas_hoy,
+        top_rutas=top_rutas
+    )
+
+
 
 
 # -------------------------
