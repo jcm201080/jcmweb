@@ -5,6 +5,12 @@ Jesús Castaño | Backend Python Developer
 {% endblock %}
 
 {% block content %}
+<!-- Acceso privado discreto -->
+    <div style="text-align:right; padding:10px;">
+        <a href="{{ url_for('login') }}" style="font-size:12px; opacity:0.3; text-decoration:none;">
+            ●
+        </a>
+    </div>
     <main>
         <section class="main">
             <section class="acerca-de" id="acerca-de">

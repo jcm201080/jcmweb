@@ -175,6 +175,39 @@ Otros Proyectos Web | Jesús Castaño
 
     </div>
 
+    {% if session.get("admin") %}
+
+    <!-- ===================== -->
+    <!-- 🔒 ZONA PERSONAL -->
+    <!-- ===================== -->
+
+    <h3 class="titulo">🔒 Zona Personal</h3>
+    <div class="contenedor-trabajos">
+
+        <div class="trabajo">
+            <div class="descripcion">
+                <p class="nombre">Panel de Visitas</p>
+                <p class="categoria">Estadísticas internas del sitio</p>
+                <a href="{{ url_for('admin_visitas') }}" class="btn-proyecto">
+                    Ir al Panel
+                </a>
+            </div>
+        </div>
+
+        <div class="trabajo">
+            <div class="descripcion">
+                <p class="nombre">MotoGP</p>
+                <p class="categoria">Sección privada personal</p>
+                <a href="{{ url_for('motogp') }}" class="btn-proyecto">
+                    Ir a MotoGP
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+
 </div>
 </section>
 

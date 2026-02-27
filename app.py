@@ -1,18 +1,33 @@
-from flask import Flask, render_template, request
 import os
 from db import db, Visita
 from datetime import datetime
+from flask import Flask, render_template, request, redirect, url_for, session
+from functools import wraps
+from config import Config
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
-# Configuración SQLite
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///visitas.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+ADMIN_EMAIL = app.config["ADMIN_EMAIL"]
+ADMIN_PASSWORD = app.config["ADMIN_PASSWORD"]
+
+
 
 db.init_app(app)
 
 with app.app_context():
     db.create_all()
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("admin"):
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated_function
 
 # -------------------------
 # CONTROL DE VISITAS
@@ -20,6 +35,9 @@ with app.app_context():
 
 @app.before_request
 def registrar_visita():
+    if session.get("admin"):
+        return
+
     if request.method != "GET":
         return
 
@@ -27,6 +45,8 @@ def registrar_visita():
         return
 
     ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    if ip and "," in ip:
+        ip = ip.split(",")[0].strip()
 
     nueva_visita = Visita(
         ip=ip,
@@ -55,6 +75,30 @@ def perfil():
 def proyectos_web():
     return render_template("proyectos-web.html", lang="es")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        if email == ADMIN_EMAIL and password == ADMIN_PASSWORD:
+            session["admin"] = True
+            return redirect(url_for("index"))
+        else:
+            return render_template("login.html", error="Credenciales incorrectas")
+
+    return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("index"))
+
+# MOtoGP2026!
+@app.route("/motogp")
+@login_required
+def motogp():
+    return render_template("motogp.html")
 
 # -------------------------
 # ROUTES - ENGLISH
@@ -87,6 +131,7 @@ def thanks_en():
 from sqlalchemy import func
 
 @app.route("/admin/visitas")
+@login_required
 def admin_visitas():
     total_visitas = Visita.query.count()
 

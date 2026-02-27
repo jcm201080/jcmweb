@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Motos de Jesús</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/motogp.css') }}">
+</head>
+<body>
+
+<div class="motogp-wrapper">
+
+    <header class="header">
+        <h1>🏍️ Motos de Jesús</h1>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar sesión</a>
+    </header>
+
+    <section class="card">
+        <h2>🏁 Próxima Carrera</h2>
+        <p><strong>GP Qatar</strong></p>
+        <p>Circuito: Lusail</p>
+        <p>Fecha: 10 Marzo 2026</p>
+        <p id="countdown"></p>
+    </section>
+    
+
+    <section class="card">
+        <h2>📡 Emisión</h2>
+        <p>ServusTV (Austria)</p>
+        <a href="https://www.servustv.com/" target="_blank" class="btn-ver">
+            Ver emisión
+        </a>
+    </section>
+
+    <section class="card-section">
+        <h2>📅 Calendario 2026</h2>
+
+        <div class="calendar-grid">
+
+            <div class="gp-card"
+                data-start="2026-02-27"
+                data-end="2026-03-01">
+                <span class="fecha">27 FEB - 01 MAR</span>
+                <h3>Thailand</h3>
+                <p>PT Grand Prix of Thailand</p>
+            </div>
+
+            <div class="gp-card"
+                data-start="2026-03-20"
+                data-end="2026-03-22">
+                <span class="fecha">20 MAR - 22 MAR</span>
+                <h3>Brazil</h3>
+                <p>Grand Prix of Brazil</p>
+            </div>
+
+            <div class="gp-card"
+                data-start="2026-03-27"
+                data-end="2026-03-29">
+                <span class="fecha">27 MAR - 29 MAR</span>
+                <h3>USA</h3>
+                <p>Grand Prix of USA</p>
+            </div>
+
+            <div class="gp-card"
+                data-start="2026-04-10"
+                data-end="2026-04-12">
+                <span class="fecha">10 APR - 12 APR</span>
+                <h3>Qatar</h3>
+                <p>Grand Prix of Qatar</p>
+            </div>
+
+            <div class="gp-card"
+                data-start="2026-04-24"
+                data-end="2026-04-26">
+                <span class="fecha">24 APR - 26 APR</span>
+                <h3>Spain</h3>
+                <p>Grand Prix of Spain</p>
+            </div>
+
+            <div class="gp-card"
+                data-start="2026-05-08"
+                data-end="2026-05-10">
+                <span class="fecha">08 MAY - 10 MAY</span>
+                <h3>France</h3>
+                <p>Grand Prix of France</p>
+            </div>
+
+            <!-- puedes seguir añadiendo el resto igual -->
+
+    </div>
+</section>
+
+    <section class="card">
+        <h2>📊 Clasificación</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Piloto</th>
+                    <th>Equipo</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marc Márquez</td>
+                    <td>Ducati</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Pecco Bagnaia</td>
+                    <td>Ducati</td>
+                    <td>-</td>
+                </tr>                
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/motogp.js') }}"></script>
+
+</body>
+</html>

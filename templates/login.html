@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Privado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <h2>🔐 Acceso Privado</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if session.get("admin") %}
+        <p class="success">Sesión iniciada</p>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar sesión</a>
+    {% else %}
+        <form method="POST">
+            <input type="email" name="email" placeholder="Correo" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
