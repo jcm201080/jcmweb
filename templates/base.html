@@ -8,7 +8,7 @@
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v={{ static_version }}">
 </head>
 
 <body>

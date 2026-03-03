@@ -90,6 +90,13 @@ def registrar_visita(response):
             db.session.rollback()
 
     return response
+
+# -------------------------
+# Versión para js, css, imágenes, etc. (sin registro de visitas)
+# -------------------------
+@app.context_processor
+def inject_version():
+    return {"static_version": int(datetime.utcnow().timestamp())}
 # -------------------------
 # ROUTES - ESPAÑOL
 # -------------------------
