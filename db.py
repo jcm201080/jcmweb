@@ -10,7 +10,12 @@ class Visita(db.Model):
     ip = db.Column(db.String(50), nullable=False)
     user_agent = db.Column(db.String(255))
     ruta = db.Column(db.String(255))
+    metodo = db.Column(db.String(10))        # NUEVO
+    status_code = db.Column(db.Integer)     # NUEVO
     fecha = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return f"<Visita {self.ip} - {self.ruta} - {self.fecha}>"
+        return (
+            f"<Visita {self.ip} - {self.ruta} "
+            f"{self.status_code} - {self.fecha}>"
+        )

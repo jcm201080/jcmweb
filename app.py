@@ -3,15 +3,27 @@ from db import db, Visita
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, session
 from functools import wraps
-from config import Config
 from dotenv import load_dotenv
+from datetime import timedelta
+from sqlalchemy import func
+
 load_dotenv()
 
 app = Flask(__name__)
-app.config.from_object(Config)
 
-ADMIN_EMAIL = app.config["ADMIN_EMAIL"]
-ADMIN_PASSWORD = app.config["ADMIN_PASSWORD"]
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev_secret_key")
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "DATABASE_URL",
+    "sqlite:///" + os.path.join(BASE_DIR, "instance", "visitas.db")
+)
+
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
 
 
@@ -29,34 +41,55 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
+from flask import g
+
 # -------------------------
 # CONTROL DE VISITAS
 # -------------------------
 
 @app.before_request
-def registrar_visita():
+def iniciar_visita():
     if session.get("admin"):
-        return
-
-    if request.method != "GET":
         return
 
     if request.path.startswith("/static"):
         return
 
-    ip = request.headers.get('X-Forwarded-For', request.remote_addr)
-    if ip and "," in ip:
-        ip = ip.split(",")[0].strip()
+    g._registro_visita = {
+        "ip": request.headers.get('X-Forwarded-For', request.remote_addr),
+        "user_agent": request.headers.get("User-Agent"),
+        "ruta": request.path,
+        "metodo": request.method,
+        "fecha": datetime.utcnow()
+    }
 
-    nueva_visita = Visita(
-        ip=ip,
-        user_agent=request.headers.get("User-Agent"),
-        ruta=request.path,
-        fecha=datetime.utcnow()
-    )
 
-    db.session.add(nueva_visita)
-    db.session.commit()
+@app.after_request
+def registrar_visita(response):
+    data = getattr(g, "_registro_visita", None)
+
+    if data:
+        ip = data["ip"]
+        if ip and "," in ip:
+            ip = ip.split(",")[0].strip()
+
+        nueva_visita = Visita(
+            ip=ip,
+            user_agent=data["user_agent"],
+            ruta=data["ruta"],
+            metodo=data["metodo"],
+            status_code=response.status_code,
+            fecha=data["fecha"]
+        )
+
+        try:
+            db.session.add(nueva_visita)
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
+
+    return response
 # -------------------------
 # ROUTES - ESPAÑOL
 # -------------------------
@@ -128,7 +161,7 @@ def thanks_en():
     return render_template("en/gracias-en.html", lang="en")
 
 
-from sqlalchemy import func
+
 
 @app.route("/admin/visitas")
 @login_required
@@ -146,16 +179,81 @@ def admin_visitas():
     top_rutas = db.session.query(
         Visita.ruta,
         func.count(Visita.id).label("total")
-    ).group_by(Visita.ruta).order_by(func.count(Visita.id).desc()).limit(5).all()
+    ).group_by(Visita.ruta)\
+     .order_by(func.count(Visita.id).desc())\
+     .limit(5).all()
+
+    # 📊 VISITAS ÚLTIMOS 7 DÍAS (con días vacíos en 0)
+    hoy = datetime.utcnow().date()
+    dias = [hoy - timedelta(days=i) for i in range(6, -1, -1)]
+
+    resultado = db.session.query(
+        func.date(Visita.fecha),
+        func.count(Visita.id)
+    ).filter(
+        Visita.fecha >= dias[0]
+    ).group_by(
+        func.date(Visita.fecha)
+    ).all()
+
+    # Convertimos a diccionario {fecha: total}
+    visitas_dict = {r[0]: r[1] for r in resultado}
+
+    fechas = []
+    totales = []
+
+    for dia in dias:
+        fechas.append(dia.strftime("%d-%m"))
+        totales.append(visitas_dict.get(dia, 0))
+
+    # 🔥 TOP IPs
+    top_ips = db.session.query(
+        Visita.ip,
+        func.count(Visita.id).label("total")
+    ).group_by(
+        Visita.ip
+    ).order_by(
+        func.count(Visita.id).desc()
+    ).limit(10).all()
+
+    # 🚨 TOP 404
+    top_404 = db.session.query(
+        Visita.ruta,
+        func.count(Visita.id).label("total")
+    ).filter(
+        Visita.status_code == 404
+    ).group_by(
+        Visita.ruta
+    ).order_by(
+        func.count(Visita.id).desc()
+    ).limit(10).all()
+
+    # ⏰ VISITAS POR HORA (0-23)
+    resultado_horas = db.session.query(
+        func.strftime('%H', Visita.fecha),
+        func.count(Visita.id)
+    ).group_by(
+        func.strftime('%H', Visita.fecha)
+    ).all()
+
+    horas_dict = {int(r[0]): r[1] for r in resultado_horas if r[0] is not None}
+
+    horas_labels = list(range(24))
+    horas_totales = [horas_dict.get(h, 0) for h in horas_labels]
 
     return render_template(
         "admin_visitas.html",
         total_visitas=total_visitas,
         visitas_unicas=visitas_unicas,
         visitas_hoy=visitas_hoy,
-        top_rutas=top_rutas
+        top_rutas=top_rutas,
+        fechas=fechas,
+        totales=totales,
+        top_ips=top_ips,
+        top_404=top_404,
+        horas_labels=horas_labels,
+        horas_totales=horas_totales
     )
-
 
 
 

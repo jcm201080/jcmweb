@@ -11,7 +11,6 @@ Panel de Visitas | Admin
     <h1>📊 Panel de Visitas</h1>
 
     <div class="stats-grid">
-
         <div class="stat-card">
             <h3>Total visitas</h3>
             <p>{{ total_visitas }}</p>
@@ -26,7 +25,6 @@ Panel de Visitas | Admin
             <h3>Visitas hoy</h3>
             <p>{{ visitas_hoy }}</p>
         </div>
-
     </div>
 
     <div class="tabla-rutas">
@@ -48,10 +46,83 @@ Panel de Visitas | Admin
             </tbody>
         </table>
     </div>
+    <div class="tabla-ips">
+        <h2>Top 10 IPs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>Visitas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ip, total in top_ips %}
+                <tr>
+                    <td class="{% if total > 50 %}ip-sospechosa{% endif %}">
+                        {{ ip }}
+                    </td>
+                    <td>{{ total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="tabla-404">
+        <h2>Top 404</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ruta</th>
+                    <th>Errores</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ruta, total in top_404 %}
+                <tr>
+                    <td class="ruta-404">{{ ruta }}</td>
+                    <td>{{ total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="grafica-container">
+        <h2>Visitas últimos 7 días</h2>
+        <canvas id="graficaVisitas"></canvas>
+    </div>
+
+    <div class="grafica-container">
+        <h2>Visitas por hora</h2>
+        <canvas id="graficaHoras"></canvas>
+    </div>
 
 </section>
+
+{% endblock %}
+
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
 {% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+    window.visitasData = {
+        fechas: {{ fechas | tojson }},
+        totales: {{ totales | tojson }}
+    };
+
+    window.horasData = {
+        labels: {{ horas_labels | tojson }},
+        totales: {{ horas_totales | tojson }}
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/admin_visitas.js') }}"></script>
 
 {% endblock %}

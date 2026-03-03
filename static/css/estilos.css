@@ -10,6 +10,7 @@
 @import 'mediaqueries.css';
 @import 'gracias.css';
 @import 'perfil.css';
+@import 'admin.css';
 
 * {
     margin: 0;

@@ -44,3 +44,54 @@
 .tabla-rutas th {
     text-align: left;
 }
+
+.tabla-ips {
+    margin-top: 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.tabla-ips h2 {
+    margin-bottom: 15px;
+}
+
+.tabla-ips table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-ips th,
+.tabla-ips td {
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-ips thead {
+    background-color: #f2f2f2;
+}
+
+.tabla-ips tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.ip-sospechosa {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.tabla-ips td:first-child {
+    font-family: monospace;
+}
+
+.tabla-404 {
+    margin-top: 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.ruta-404 {
+    font-family: monospace;
+    color: #e67e22;
+}
