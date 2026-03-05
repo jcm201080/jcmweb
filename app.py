@@ -1,11 +1,13 @@
 import os
 from db import db, Visita
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from functools import wraps
 from dotenv import load_dotenv
 from datetime import timedelta
 from sqlalchemy import func
+
+from ai.agente_portafolio import preguntar_portafolio
 
 load_dotenv()
 
@@ -262,7 +264,22 @@ def admin_visitas():
         horas_totales=horas_totales
     )
 
+#----------------
+# Agente Ia
+#---------
 
+@app.route("/api/portafolio_ai", methods=["POST"])
+def portafolio_ai():
+
+    data = request.json
+    pregunta = data.get("pregunta", "")
+
+    if not pregunta:
+        return jsonify({"respuesta": "No he recibido ninguna pregunta."})
+
+    respuesta = preguntar_portafolio(pregunta)
+
+    return jsonify({"respuesta": respuesta})
 
 # -------------------------
 # RUN

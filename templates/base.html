@@ -9,6 +9,7 @@
 
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v={{ static_version }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_chat.css') }}">
 </head>
 
 <body>
@@ -28,10 +29,12 @@
     {% block content %}{% endblock %}
 
     {% include "partials/footer.html" %}
+    {% include "partials/ai_chat.html" %}
 
     <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/efectos.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ai_chat.js') }}"></script>
 
     {% block extra_js %}{% endblock %}
 
