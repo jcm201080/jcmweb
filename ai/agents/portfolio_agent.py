@@ -55,7 +55,13 @@ RESPUESTAS_VARIADAS = {
         "Para presupuestos o consultoría, lo mejor es contactar directamente desde el portfolio: https://jesuscmweb.com/contacto. Jesús está especializado en backend Python.",
         
         "Si necesitas desarrollar algo con Flask, procesamiento de datos o sistemas en tiempo real, escríbele desde: https://jesuscmweb.com/contacto"
+    ],
+
+    "trabajo": [
+        "Jesús Castaño está abierto a oportunidades como Python Backend Developer. Puedes conectar en LinkedIn: https://linkedin.com/in/TU_LINKEDIN",
+        "If you want to connect professionally, you can find Jesús Castaño on LinkedIn: https://linkedin.com/in/TU_LINKEDIN"
     ]
+
 }
 
 

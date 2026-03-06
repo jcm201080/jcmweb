@@ -41,4 +41,7 @@ def detectar_intencion(pregunta: str) -> str | None:
     ]):
         return "contacto"
 
+    if any(p in pregunta for p in ["job", "hire", "trabajo", "contratar", "linkedin"]):
+        return "trabajo"
+
     return None
