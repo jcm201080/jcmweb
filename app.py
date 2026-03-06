@@ -9,6 +9,14 @@ from sqlalchemy import func
 
 from ai.agente_portafolio import preguntar_portafolio
 
+import logging
+
+# Configurar logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+
 load_dotenv()
 
 app = Flask(__name__)
