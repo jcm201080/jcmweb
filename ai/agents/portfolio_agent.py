@@ -4,20 +4,24 @@ import os
 import random
 import logging
 from litellm import completion
-from .contexto_portafolio import contexto_portafolio
-from .cliente_juegos import consultar_agente_juegos  # ✅ Import correcto
+
+from ..prompts.portfolio_prompt import contexto_portafolio
+from ..clients.juegos_client import consultar_agente_juegos
+from ..utils.language_utils import detectar_idioma, traducir_a_ingles
+from ..utils.intent_detector import detectar_intencion
+from ..utils.project_recommender import recomendar_proyecto
+
+from ..utils.readme_loader import cargar_readme
+from ..config.projects import PROJECTS
+
+from ..config.models import MODELOS_GROQ
+
 
 logger = logging.getLogger(__name__)
 
 # Variables de entorno
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-# Modelos que intentará usar el agente
-MODELOS_GROQ = [
-    "groq/llama-3.3-70b-versatile",
-    "groq/llama3-70b-8192",
-    "groq/mixtral-8x7b-32768"
-]
 
 # Variaciones para respuestas de intención (más naturales)
 RESPUESTAS_VARIADAS = {
@@ -54,30 +58,7 @@ RESPUESTAS_VARIADAS = {
     ]
 }
 
-def detectar_intencion(pregunta: str):
-    """
-    Detecta intención básica del usuario para recomendar proyectos.
-    Versión mejorada con más palabras clave.
-    """
-    texto = pregunta.lower()
-    
-    # Intención juegos
-    if any(p in texto for p in ["jugar", "game", "juego", "bingo", "diversión", "entretenimiento", "jugabilidad", "gam", "play"]):
-        return "juegos"
-    
-    # Intención ERP / backend
-    if any(p in texto for p in ["backend", "flask", "api", "empresa", "erp", "negocio", "gestión", "stock", "productos", "ventas", "comercial"]):
-        return "erp"
-    
-    # Intención ciberseguridad
-    if any(p in texto for p in ["seguridad", "ciber", "logs", "ataque", "hacker", "vulnerabilidad", "firewall", "intrusión", "malware"]):
-        return "ciber"
-    
-    # Intención contacto / servicios
-    if any(p in texto for p in ["trabajo", "contratar", "proyecto", "presupuesto", "servicio", "desarrollar", "contratación", "precio", "colaborar"]):
-        return "contacto"
-    
-    return None
+
 
 def respuesta_intencion(intencion):
     """
@@ -88,11 +69,14 @@ def respuesta_intencion(intencion):
     
     return None
 
-def preguntar_portafolio(pregunta: str, historial=None):
+
+def portfolio_agent(pregunta: str, historial=None):
     """
     Función principal del agente IA con memoria de conversación.
     """
     logger.info(f"📝 Pregunta recibida: {pregunta[:100]}...")
+    idioma = detectar_idioma(pregunta)
+    logger.info(f"🌍 Idioma detectado: {idioma}")
     
     # Inicializar historial si no existe
     if historial is None:
@@ -100,6 +84,13 @@ def preguntar_portafolio(pregunta: str, historial=None):
     
     # 1️⃣ Detectar intención
     intencion = detectar_intencion(pregunta)
+    # 🔎 Intentar recomendar proyecto automáticamente
+    if not intencion:
+        recomendacion = recomendar_proyecto(pregunta)
+
+        if recomendacion:
+            logger.info(f"🤖 Recomendando proyecto: {recomendacion}")
+            intencion = recomendacion
     logger.info(f"🎯 Intención detectada: {intencion}")
     
     # 🎮 CASO ESPECIAL: Juegos - Consultar al agente especializado
@@ -108,24 +99,39 @@ def preguntar_portafolio(pregunta: str, historial=None):
         
         # Intentar obtener respuesta del agente de juegos
         respuesta_juegos = consultar_agente_juegos(pregunta)
-        
+
         if respuesta_juegos:
             logger.info("✅ Respuesta recibida del agente de juegos")
+
+            # 🌍 Si el usuario habla en inglés → traducir la respuesta
+            if idioma == "en":
+                respuesta_juegos = traducir_a_ingles(respuesta_juegos)
+
             # Guardar en historial
             historial.append({"role": "user", "content": pregunta})
             historial.append({"role": "assistant", "content": respuesta_juegos})
+
             return respuesta_juegos
         else:
             logger.warning("⚠️ Agente de juegos no disponible, usando respaldo")
             # Usar respuesta local de respaldo
             respuesta_local = respuesta_intencion("juegos")
+
+            # Si el idioma es inglés, usar respuesta en inglés
+            if idioma == "en":
+                respuesta_local = (
+                    "You can try the **Juegos JCM platform**, which includes several "
+                    "interactive games built with Flask and real-time WebSockets.\n\n"
+                    "Try it here: https://juegos.jesuscmweb.com"
+                )
+
             if respuesta_local:
                 historial.append({"role": "user", "content": pregunta})
                 historial.append({"role": "assistant", "content": respuesta_local})
                 return respuesta_local
     
     # 2️⃣ Si hay otra intención clara, responder con variaciones
-    if intencion and intencion != "juegos":
+    if intencion and intencion not in ["juegos", "erp", "ciber", "burger"]:
         respuesta = respuesta_intencion(intencion)
         if respuesta:
             historial.append({"role": "user", "content": pregunta})
@@ -135,9 +141,63 @@ def preguntar_portafolio(pregunta: str, historial=None):
     # 3️⃣ Si no hay intención clara, usar IA con Groq
     logger.info("🤔 Usando IA de Groq para responder...")
     
-    # Construir mensajes con historial
-    messages = [{"role": "system", "content": contexto_portafolio}]
+    # Instrucción de idioma
+    if idioma == "en":
+        instruccion_idioma = "Respond in English."
+    else:
+        instruccion_idioma = "Responde en español."
+
+    messages = [{
+        "role": "system",
+        "content": contexto_portafolio + "\n\n" + instruccion_idioma
+    }]
     
+    # 📦 Cargar README de proyectos si existe
+    if intencion in PROJECTS:
+
+        project = PROJECTS[intencion]
+
+        if "readme" in project:
+
+            logger.info(f"📦 Cargando README del proyecto {intencion}")
+
+            readme = cargar_readme(project["readme"])
+
+            if readme:
+                messages.append({
+                    "role": "system",
+                    "content": f"Este es el README del proyecto {project['nombre']}:\n\n{readme}"
+                })
+
+    # 🍔 Proyecto Dehesa Burger (sin README)
+    if intencion == "burger":
+
+        contexto_burger = """
+        Dehesa Burger es una web desarrollada con Flask para una hamburguesería.
+
+        Características principales:
+
+        - Página principal
+        - Carta de hamburguesas
+        - Galería de imágenes
+        - Página de contacto
+        - Sección de entretenimiento con juegos
+
+        Tecnologías usadas:
+        - Python
+        - Flask
+        - HTML
+        - CSS
+        - JavaScript
+
+        El sistema incluye una API que devuelve las imágenes de la galería desde la carpeta static.
+        """
+
+        messages.append({
+            "role": "system",
+            "content": contexto_burger
+        })
+
     # Añadir historial (últimas 3 interacciones)
     for msg in historial[-3:]:
         messages.append(msg)
@@ -156,6 +216,13 @@ def preguntar_portafolio(pregunta: str, historial=None):
             )
             
             respuesta_ia = response["choices"][0]["message"]["content"]
+
+            # corregir estilo para evitar "Jesús Castaño's"
+            respuesta_ia = respuesta_ia.replace("Jesús Castaño's", "Jesús Castaño")
+            respuesta_ia = respuesta_ia.replace("Jesus Castaño's", "Jesús Castaño")
+
+            respuesta_ia = respuesta_ia.replace("Jesús Castaño´s", "Jesús Castaño")
+            respuesta_ia = respuesta_ia.replace("Jesus Castano's", "Jesús Castaño")
             
             # Guardar en historial
             historial.append({"role": "user", "content": pregunta})
@@ -168,5 +235,7 @@ def preguntar_portafolio(pregunta: str, historial=None):
             logger.error(f"❌ Error con modelo {modelo}: {e}")
             continue
     
-    # Respuesta de fallback
-    return "Lo siento, el asistente no está disponible en este momento. Por favor, intenta más tarde."
+    if idioma == "en":
+        return "Sorry, the assistant is temporarily unavailable. Please try again later."
+    else:
+        return "Lo siento, el asistente no está disponible en este momento. Por favor, intenta más tarde."

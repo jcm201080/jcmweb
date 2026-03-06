@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from datetime import timedelta
 from sqlalchemy import func
 
-from ai.agente_portafolio import preguntar_portafolio
+from ai.orchestrator.orchestrator import preguntar_orchestrator
 
 import logging
 
@@ -285,7 +285,7 @@ def portafolio_ai():
     if not pregunta:
         return jsonify({"respuesta": "No he recibido ninguna pregunta."})
 
-    respuesta = preguntar_portafolio(pregunta)
+    respuesta = preguntar_orchestrator(pregunta)
 
     return jsonify({"respuesta": respuesta})
 

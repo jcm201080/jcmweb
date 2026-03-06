@@ -3,13 +3,19 @@
 import requests
 import logging
 from typing import Optional
+import os
 
 logger = logging.getLogger(__name__)
 
-# Configuración - AJUSTA SEGÚN TU ENTORNO
-JUEGOS_API_URL = "http://127.0.0.1:5000"  # Puerto donde corre la app de juegos
-JUEGOS_ENDPOINT = f"{JUEGOS_API_URL}/api/agente-portfolio"  # Endpoint específico
-TIMEOUT_SEGUNDOS = 5  # Un poco más de tiempo para que el agente piense
+# Detectar entorno
+if os.environ.get("FLASK_ENV") == "production":
+    JUEGOS_API_URL = "https://juegos.jesuscmweb.com"
+else:
+    JUEGOS_API_URL = "http://localhost:5001"
+
+JUEGOS_ENDPOINT = f"{JUEGOS_API_URL}/api/agente-portfolio"
+
+TIMEOUT_SEGUNDOS = 5
 
 def consultar_agente_juegos(pregunta: str) -> Optional[str]:
     """
