@@ -7,7 +7,7 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 # Configuración - AJUSTA SEGÚN TU ENTORNO
-JUEGOS_API_URL = "http://localhost:5001"  # Puerto donde corre la app de juegos
+JUEGOS_API_URL = "http://127.0.0.1:5000"  # Puerto donde corre la app de juegos
 JUEGOS_ENDPOINT = f"{JUEGOS_API_URL}/api/agente-portfolio"  # Endpoint específico
 TIMEOUT_SEGUNDOS = 5  # Un poco más de tiempo para que el agente piense
 
