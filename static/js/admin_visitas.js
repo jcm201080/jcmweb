@@ -51,3 +51,48 @@ if (ctxHoras && window.horasData) {
         }
     });
 }
+
+// 📊 Visitas por día de la semana
+const ctxDias = document.getElementById('graficaDias');
+
+if(ctxDias && window.diasData){
+    new Chart(ctxDias,{
+        type:'bar',
+        data:{
+            labels: window.diasData.labels,
+            datasets:[{
+                label:'Visitas',
+                data: window.diasData.totales
+            }]
+        },
+        options:{
+            responsive:true,
+            scales:{
+                y:{ beginAtZero:true }
+            }
+        }
+    });
+}
+
+
+// 📊 Visitas por mes
+const ctxMeses = document.getElementById('graficaMeses');
+
+if(ctxMeses && window.mesesData){
+    new Chart(ctxMeses,{
+        type:'bar',
+        data:{
+            labels: window.mesesData.labels,
+            datasets:[{
+                label:'Visitas',
+                data: window.mesesData.totales
+            }]
+        },
+        options:{
+            responsive:true,
+            scales:{
+                y:{ beginAtZero:true }
+            }
+        }
+    });
+}

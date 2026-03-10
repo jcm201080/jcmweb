@@ -258,6 +258,37 @@ def admin_visitas():
     horas_labels = list(range(24))
     horas_totales = [horas_dict.get(h, 0) for h in horas_labels]
 
+    # 📅 VISITAS POR DÍA DE LA SEMANA
+    resultado_dias = db.session.query(
+        func.strftime('%w', Visita.fecha),
+        func.count(Visita.id)
+    ).group_by(
+        func.strftime('%w', Visita.fecha)
+    ).all()
+
+    dias_dict = {int(r[0]): r[1] for r in resultado_dias if r[0] is not None}
+
+    dias_labels = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"]
+    dias_totales = [dias_dict.get(i, 0) for i in range(7)]
+
+
+    # 📅 VISITAS POR MES
+    resultado_meses = db.session.query(
+        func.strftime('%m', Visita.fecha),
+        func.count(Visita.id)
+    ).group_by(
+        func.strftime('%m', Visita.fecha)
+    ).all()
+
+    meses_dict = {int(r[0]): r[1] for r in resultado_meses if r[0] is not None}
+
+    meses_labels = [
+        "Ene","Feb","Mar","Abr","May","Jun",
+        "Jul","Ago","Sep","Oct","Nov","Dic"
+    ]
+
+    meses_totales = [meses_dict.get(i+1, 0) for i in range(12)]
+
     return render_template(
         "admin_visitas.html",
         total_visitas=total_visitas,
@@ -269,7 +300,11 @@ def admin_visitas():
         top_ips=top_ips,
         top_404=top_404,
         horas_labels=horas_labels,
-        horas_totales=horas_totales
+        horas_totales=horas_totales,
+        dias_labels=dias_labels,
+        dias_totales=dias_totales,
+        meses_labels=meses_labels,
+        meses_totales=meses_totales
     )
 
 #----------------

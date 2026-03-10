@@ -87,15 +87,32 @@ Panel de Visitas | Admin
             </tbody>
         </table>
     </div>
+    <h2 class="grafica_titulo" style="margin-top:50px">📈 Analítica de visitas</h2>
 
     <div class="grafica-container">
         <h2>Visitas últimos 7 días</h2>
         <canvas id="graficaVisitas"></canvas>
     </div>
 
+    <hr style="margin:40px 0;">
+
     <div class="grafica-container">
         <h2>Visitas por hora</h2>
-        <canvas id="graficaHoras"></canvas>
+        <canvas id="graficaHoras" ></canvas>
+    </div>
+
+    <hr style="margin:40px 0;">
+
+    <div class="grafica-container">
+        <h2>Visitas por día de la semana</h2>
+        <canvas id="graficaDias" height="300"></canvas>
+    </div>
+
+    <hr style="margin:40px 0;">
+
+    <div class="grafica-container">
+        <h2>Visitas por mes</h2>
+        <canvas id="graficaMeses" height="300"></canvas>
     </div>
 
 </section>
@@ -119,6 +136,16 @@ Panel de Visitas | Admin
     window.horasData = {
         labels: {{ horas_labels | tojson }},
         totales: {{ horas_totales | tojson }}
+    };
+
+    window.diasData = {
+        labels: {{ dias_labels | tojson }},
+        totales: {{ dias_totales | tojson }}
+    };
+
+    window.mesesData = {
+        labels: {{ meses_labels | tojson }},
+        totales: {{ meses_totales | tojson }}
     };
 </script>
 
