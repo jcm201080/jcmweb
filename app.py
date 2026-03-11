@@ -62,7 +62,7 @@ from flask import g
 def iniciar_visita():
 
     logging.info(f"VISITA DETECTADA: {request.path}")
-    
+
     if session.get("admin"):
         return
 
@@ -99,8 +99,9 @@ def registrar_visita(response):
         try:
             db.session.add(nueva_visita)
             db.session.commit()
-        except Exception:
+        except Exception as e:
             db.session.rollback()
+            logging.error(f"ERROR GUARDANDO VISITA: {e}")
 
     return response
 
