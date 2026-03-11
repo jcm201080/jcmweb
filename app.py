@@ -99,6 +99,7 @@ def registrar_visita(response):
         try:
             db.session.add(nueva_visita)
             db.session.commit()
+            logging.info("VISITA GUARDADA EN BD")
         except Exception as e:
             db.session.rollback()
             logging.error(f"ERROR GUARDANDO VISITA: {e}")
