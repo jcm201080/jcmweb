@@ -60,6 +60,9 @@ from flask import g
 
 @app.before_request
 def iniciar_visita():
+
+    logging.info(f"VISITA DETECTADA: {request.path}")
+    
     if session.get("admin"):
         return
 
