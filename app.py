@@ -59,9 +59,7 @@ from flask import g
 # -------------------------
 
 @app.before_request
-def iniciar_visita():
-
-    logging.info(f"VISITA DETECTADA: {request.path}")
+def registrar_visita():
 
     if session.get("admin"):
         return
@@ -69,46 +67,30 @@ def iniciar_visita():
     if request.path.startswith("/static"):
         return
 
-    g._registro_visita = {
-        "ip": request.headers.get('X-Forwarded-For', request.remote_addr),
-        "user_agent": request.headers.get("User-Agent"),
-        "ruta": request.path,
-        "metodo": request.method,
-        "fecha": datetime.utcnow()
-    }
+    ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+    if ip and "," in ip:
+        ip = ip.split(",")[0].strip()
+
+    visita = Visita(
+        ip=ip,
+        user_agent=request.headers.get("User-Agent"),
+        ruta=request.path,
+        metodo=request.method,
+        status_code=200,
+        fecha=datetime.utcnow()
+    )
+
+    try:
+        db.session.add(visita)
+        db.session.commit()
+        logging.info("VISITA GUARDADA EN BD")
+    except Exception as e:
+        db.session.rollback()
+        logging.error(f"ERROR GUARDANDO VISITA: {e}")
 
 
-@app.after_request
-def registrar_visita(response):
 
-    logging.info("AFTER_REQUEST EJECUTADO")
-    data = getattr(g, "_registro_visita", None)
-
-    logging.info(f"G DATA: {data}")
-    
-    if data:
-        ip = data["ip"]
-        if ip and "," in ip:
-            ip = ip.split(",")[0].strip()
-
-        nueva_visita = Visita(
-            ip=ip,
-            user_agent=data["user_agent"],
-            ruta=data["ruta"],
-            metodo=data["metodo"],
-            status_code=response.status_code,
-            fecha=data["fecha"]
-        )
-
-        try:
-            db.session.add(nueva_visita)
-            db.session.commit()
-            logging.info("VISITA GUARDADA EN BD")
-        except Exception as e:
-            db.session.rollback()
-            logging.error(f"ERROR GUARDANDO VISITA: {e}")
-
-    return response
 
 # -------------------------
 # Versión para js, css, imágenes, etc. (sin registro de visitas)
