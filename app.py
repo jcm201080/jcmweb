@@ -80,6 +80,8 @@ def iniciar_visita():
 
 @app.after_request
 def registrar_visita(response):
+
+    logging.info("AFTER_REQUEST EJECUTADO")
     data = getattr(g, "_registro_visita", None)
 
     if data:
