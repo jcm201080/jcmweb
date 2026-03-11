@@ -33,6 +33,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+# Verificar permisos de escritura en la BD
+DB_PATH = os.path.join(BASE_DIR, "instance", "visitas.db")
+
+if not os.access(DB_PATH, os.W_OK):
+    logging.warning(f"La base de datos no tiene permisos de escritura: {DB_PATH}")
+
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
@@ -67,6 +73,14 @@ def registrar_visita(response):
     if request.path.startswith("/static"):
         return response
 
+    if request.path == "/favicon.ico":
+        return response
+    
+    user_agent = request.headers.get("User-Agent", "").lower()
+
+    if "bot" in user_agent or "crawler" in user_agent or "spider" in user_agent:
+        return response
+
     ip = request.headers.get('X-Forwarded-For', request.remote_addr)
 
     if ip and "," in ip:
@@ -84,10 +98,11 @@ def registrar_visita(response):
     try:
         db.session.add(visita)
         db.session.commit()
-        logging.info("VISITA GUARDADA EN BD")
     except Exception as e:
         db.session.rollback()
         logging.error(f"ERROR GUARDANDO VISITA: {e}")
+    finally:
+        db.session.remove()
 
     return response
 # -------------------------
