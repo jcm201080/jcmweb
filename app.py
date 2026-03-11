@@ -1,3 +1,4 @@
+print("APP FILE:", __file__)
 import os
 from db import db, Visita
 from datetime import datetime
