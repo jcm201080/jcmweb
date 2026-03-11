@@ -58,15 +58,14 @@ from flask import g
 # -------------------------
 # CONTROL DE VISITAS
 # -------------------------
-
-@app.before_request
-def registrar_visita():
+@app.after_request
+def registrar_visita(response):
 
     if session.get("admin"):
-        return
+        return response
 
     if request.path.startswith("/static"):
-        return
+        return response
 
     ip = request.headers.get('X-Forwarded-For', request.remote_addr)
 
@@ -78,7 +77,7 @@ def registrar_visita():
         user_agent=request.headers.get("User-Agent"),
         ruta=request.path,
         metodo=request.method,
-        status_code=200,
+        status_code=response.status_code,
         fecha=datetime.utcnow()
     )
 
@@ -90,9 +89,7 @@ def registrar_visita():
         db.session.rollback()
         logging.error(f"ERROR GUARDANDO VISITA: {e}")
 
-
-
-
+    return response
 # -------------------------
 # Versión para js, css, imágenes, etc. (sin registro de visitas)
 # -------------------------
