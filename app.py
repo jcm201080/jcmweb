@@ -84,6 +84,8 @@ def registrar_visita(response):
     logging.info("AFTER_REQUEST EJECUTADO")
     data = getattr(g, "_registro_visita", None)
 
+    logging.info(f"G DATA: {data}")
+    
     if data:
         ip = data["ip"]
         if ip and "," in ip:
