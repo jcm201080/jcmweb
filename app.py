@@ -209,23 +209,21 @@ def admin_visitas():
     dias = [hoy - timedelta(days=i) for i in range(6, -1, -1)]
 
     resultado = db.session.query(
-        func.date(Visita.fecha),
+        func.date(Visita.fecha).label("dia"),
         func.count(Visita.id)
     ).filter(
-        Visita.fecha >= dias[0]
-    ).group_by(
-        func.date(Visita.fecha)
-    ).all()
+        Visita.fecha >= datetime.utcnow() - timedelta(days=7)
+    ).group_by("dia").all()
 
     # Convertimos a diccionario {fecha: total}
-    visitas_dict = {r[0]: r[1] for r in resultado}
+    visitas_dict = {str(r[0]): r[1] for r in resultado}
 
     fechas = []
     totales = []
 
     for dia in dias:
         fechas.append(dia.strftime("%d-%m"))
-        totales.append(visitas_dict.get(dia, 0))
+        totales.append(visitas_dict.get(str(dia), 0))
 
     # 🔥 TOP IPs
     top_ips = db.session.query(
