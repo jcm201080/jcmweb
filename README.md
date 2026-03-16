@@ -105,6 +105,118 @@ Language is controlled server-side via route handling and template variables (la
 
 No automatic browser redirection is used — language switching is handled manually through navigation.
 
+
+🤖 AI Assistant Architecture
+
+The portfolio includes an AI assistant built using a lightweight multi-agent architecture.
+
+The assistant routes user questions to specialized agents depending on the detected intent.
+
+Example agents:
+
+- 🎮 Games agent → handles questions about the real-time game platform
+- 🛡 Cybersecurity agent → connects to the log analysis system
+- 🧠 Portfolio agent → general assistant powered by LLM
+
+The AI assistant uses a multi-agent architecture with resilient fallbacks, allowing the system to continue responding even when specialized agents are unavailable.
+
+📁 AI System Structure
+
+The AI assistant is organized using a modular agent architecture:
+
+ai/
+│
+├── agents/
+│   └── portfolio_agent.py
+│
+├── clients/
+│   ├── juegos_client.py
+│   └── ciber_client.py
+│
+├── orchestrator/
+│   └── orchestrator.py
+│
+├── prompts/
+│   └── portfolio_prompt.py
+│
+├── utils/
+│   ├── intent_detector.py
+│   ├── language_utils.py
+│   ├── project_recommender.py
+│   └── readme_loader.py
+│
+└── config/
+    ├── models.py
+    └── projects.py
+🔄 AI Request Flow
+
+User question
+     ↓
+API endpoint (/api/portafolio_ai)
+     ↓
+AI Orchestrator
+     ↓
+Portfolio Agent
+     ↓
+Intent Detection
+     ↓
+Specialized Agent
+
+Examples:
+
+User asks about games  
+→ request sent to the Games Agent
+
+User asks about cybersecurity  
+→ request sent to the Cybersecurity Log Analyzer
+
+Other questions  
+→ answered using the LLM backend
+
+➕ Adding New AI Agents
+
+New agents can be added following this pattern:
+
+1. Create a client in:
+
+ai/clients/
+
+Example:
+clientes/nuevo_agente_client.py
+
+
+2. Import the client in the portfolio agent.
+
+3. Add an intent rule in:
+
+
+utils/intent_detector.py
+
+
+4. Add a new block in:
+
+
+agents/portfolio_agent.py
+
+
+Example:
+
+
+if intencion == "nuevo_agente":
+return consultar_nuevo_agente(pregunta)
+
+🧠 AI Features Implemented
+
+Current AI capabilities include:
+
+- Intent detection
+- Multi-agent routing
+- Language detection (Spanish / English)
+- External agent communication via HTTP
+- LLM fallback using Groq models
+- Conversation memory support
+
+
 🎯 Key Features
 
 Featured backend project showcase

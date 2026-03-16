@@ -1,4 +1,4 @@
-# /var/www/jcmweb_flask/ai/agente_router.py
+# ai/agents/portfolio_agent.py
 
 import os
 import random
@@ -10,6 +10,7 @@ from ..clients.juegos_client import consultar_agente_juegos
 from ..utils.language_utils import detectar_idioma, traducir_a_ingles
 from ..utils.intent_detector import detectar_intencion
 from ..utils.project_recommender import recomendar_proyecto
+from ..clients.ciber_client import consultar_agente_ciber
 
 from ..utils.readme_loader import cargar_readme
 from ..config.projects import PROJECTS
@@ -135,6 +136,41 @@ def portfolio_agent(pregunta: str, historial=None):
                 historial.append({"role": "user", "content": pregunta})
                 historial.append({"role": "assistant", "content": respuesta_local})
                 return respuesta_local
+
+    # 🔐 CASO ESPECIAL: Ciberseguridad
+    if intencion == "ciber":
+
+        logger.info("🔄 Consultando agente de ciberseguridad...")
+
+        respuesta_ciber = consultar_agente_ciber(pregunta)
+
+        if respuesta_ciber:
+
+            if idioma == "en":
+                respuesta_ciber = traducir_a_ingles(respuesta_ciber)
+
+            historial.append({"role": "user", "content": pregunta})
+            historial.append({"role": "assistant", "content": respuesta_ciber})
+
+            return respuesta_ciber
+
+        else:
+            logger.warning("⚠️ Agente de ciber no disponible, usando respaldo")
+
+            respuesta_local = random.choice(RESPUESTAS_VARIADAS["ciber"])
+
+            if idioma == "en":
+                respuesta_local = (
+                    "You can explore the **Cybersecurity Log Analyzer**, "
+                    "a system that detects suspicious IPs and attack patterns "
+                    "by analyzing server logs.\n\n"
+                    "Try it here: https://ciberseguridad.jesuscmweb.com"
+                )
+
+            historial.append({"role": "user", "content": pregunta})
+            historial.append({"role": "assistant", "content": respuesta_local})
+
+            return respuesta_local
     
     # 2️⃣ Si hay otra intención clara, responder con variaciones
     if intencion and intencion not in ["juegos", "erp", "ciber", "burger"]:
