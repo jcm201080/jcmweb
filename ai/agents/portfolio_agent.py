@@ -146,7 +146,7 @@ def portfolio_agent(pregunta: str, historial=None):
 
         if respuesta_ciber:
 
-            if idioma == "en":
+            if idioma == "en" and detectar_idioma(respuesta_ciber) == "es":
                 respuesta_ciber = traducir_a_ingles(respuesta_ciber)
 
             historial.append({"role": "user", "content": pregunta})
