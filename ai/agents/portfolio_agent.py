@@ -91,6 +91,11 @@ def portfolio_agent(pregunta: str, historial=None):
     
     # 1️⃣ Detectar intención
     intencion = detectar_intencion(pregunta)
+    # 🔥 Fallback inteligente para juegos (MUY IMPORTANTE)
+    if not intencion:
+        if any(p in pregunta.lower() for p in ["juego", "juegos", "bingo", "ajedrez", "tetris", "puzzle", "jugar"]):
+            logger.info("🧠 Fallback: detectado como juegos por keywords")
+            intencion = "juegos"
     # 🔎 Intentar recomendar proyecto automáticamente
     if not intencion:
         recomendacion = recomendar_proyecto(pregunta)
@@ -99,6 +104,11 @@ def portfolio_agent(pregunta: str, historial=None):
             logger.info(f"🤖 Recomendando proyecto: {recomendacion}")
             intencion = recomendacion
     logger.info(f"🎯 Intención detectada: {intencion}")
+
+    # 🔁 Normalizar variantes (por si el detector devuelve cosas raras)
+    if intencion in ["game", "games", "play"]:
+        logger.info("🔁 Normalizando intención a 'juegos'")
+        intencion = "juegos"
     
     # 🎮 CASO ESPECIAL: Juegos - Consultar al agente especializado
     if intencion == "juegos":
@@ -107,7 +117,7 @@ def portfolio_agent(pregunta: str, historial=None):
         # Intentar obtener respuesta del agente de juegos
         respuesta_juegos = consultar_agente_juegos(pregunta)
 
-        if respuesta_juegos:
+        if respuesta_juegos and len(respuesta_juegos.strip()) > 30:
             logger.info("✅ Respuesta recibida del agente de juegos")
 
             # 🌍 Si el usuario habla en inglés → traducir la respuesta

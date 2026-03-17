@@ -10,10 +10,7 @@ logger = logging.getLogger(__name__)
 # Detectar entorno
 ENV = os.getenv("FLASK_ENV", "development")
 
-if ENV == "production":
-    JUEGOS_API_URL = "https://juegos.jesuscmweb.com"
-else:
-    JUEGOS_API_URL = "http://localhost:5001"
+JUEGOS_API_URL = "https://juegos.jesuscmweb.com"
 
 JUEGOS_ENDPOINT = f"{JUEGOS_API_URL}/api/agente-portfolio"
 

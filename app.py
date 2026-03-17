@@ -1,7 +1,7 @@
 print("APP FILE:", __file__)
 import os
 from db import db, Visita
-from datetime import datetime
+from datetime import datetime, UTC
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from functools import wraps
 from dotenv import load_dotenv
@@ -92,7 +92,7 @@ def registrar_visita(response):
         ruta=request.path,
         metodo=request.method,
         status_code=response.status_code,
-        fecha=datetime.utcnow()
+        fecha = datetime.now(UTC)
     )
 
     try:
