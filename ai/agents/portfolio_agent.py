@@ -61,7 +61,15 @@ RESPUESTAS_VARIADAS = {
     "trabajo": [
         "Jesús Castaño está abierto a oportunidades como Python Backend Developer. Puedes conectar en LinkedIn: https://linkedin.com/in/TU_LINKEDIN",
         "If you want to connect professionally, you can find Jesús Castaño on LinkedIn: https://linkedin.com/in/TU_LINKEDIN"
-    ]
+    ],
+
+    "restaurante": [
+        "He desarrollado dos soluciones para restauración. La más avanzada es una app SaaS con carta digital, panel de gestión y reservas online: https://restaurante.jesuscmweb.com/",
+
+        "Tengo experiencia en desarrollo de webs para restaurantes. Desde proyectos iniciales como Dehesa Burger hasta una solución completa con gestión y carta digital: https://restaurante.jesuscmweb.com/",
+
+        "Actualmente estoy desarrollando una app profesional para restaurantes que permite gestionar la carta, destacar platos y recibir reservas. Puedes verla aquí: https://restaurante.jesuscmweb.com/"
+    ],
 
 }
 
@@ -96,6 +104,11 @@ def portfolio_agent(pregunta: str, historial=None):
         if any(p in pregunta.lower() for p in ["juego", "juegos", "bingo", "ajedrez", "tetris", "puzzle", "jugar"]):
             logger.info("🧠 Fallback: detectado como juegos por keywords")
             intencion = "juegos"
+
+    if not intencion:
+        if any(p in pregunta.lower() for p in ["restaurante", "bar", "carta", "menu", "comida", "reserva"]):
+            logger.info("🍽️ Fallback: detectado como restaurante")
+            intencion = "restaurante"
     # 🔎 Intentar recomendar proyecto automáticamente
     if not intencion:
         recomendacion = recomendar_proyecto(pregunta)
@@ -104,6 +117,17 @@ def portfolio_agent(pregunta: str, historial=None):
             logger.info(f"🤖 Recomendando proyecto: {recomendacion}")
             intencion = recomendacion
     logger.info(f"🎯 Intención detectada: {intencion}")
+
+    # 🍽️ PRIORIDAD: Restaurante (SaaS nuevo)
+    if intencion == "restaurante":
+        logger.info("🍽️ Respuesta directa restaurante SaaS")
+        
+        respuesta = random.choice(RESPUESTAS_VARIADAS["restaurante"])
+        
+        historial.append({"role": "user", "content": pregunta})
+        historial.append({"role": "assistant", "content": respuesta})
+        
+        return respuesta
 
     # 🔁 Normalizar variantes (por si el detector devuelve cosas raras)
     if intencion in ["game", "games", "play"]:
@@ -146,6 +170,9 @@ def portfolio_agent(pregunta: str, historial=None):
                 historial.append({"role": "user", "content": pregunta})
                 historial.append({"role": "assistant", "content": respuesta_local})
                 return respuesta_local
+    
+
+    
 
     # 🔐 CASO ESPECIAL: Ciberseguridad
     if intencion == "ciber":
