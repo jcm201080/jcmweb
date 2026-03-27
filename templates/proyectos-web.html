@@ -10,7 +10,7 @@ Otros Proyectos Web | Jesús Castaño
         <section class="trabajos">
             <div class="contenedor">
 
-                
+
                 <!-- ===================== -->
                 <!-- SITIOS WEB FRONTEND -->
                 <!-- ===================== -->
@@ -189,18 +189,33 @@ Otros Proyectos Web | Jesús Castaño
                 <div class="contenedor-trabajos">
                     <div class="trabajo">
                         <div class="thumb">
+                            <a target="_blank" rel="noopener noreferrer" href="https://creacion.jesuscmweb.com/">
+                                <img src="{{ url_for('static', filename='img/creacion.png') }}"
+                                    alt="Creación Paginas web y programas" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="descripcion">
+                            <p class="nombre">Creación Webs y programas</p>
+                            <p class="categoria">
+                                Flask · IA · Panel Admin · VPS
+                            </p>
+                        </div>
+                    </div>
+                    <div class="trabajo">
+                        <div class="thumb">
                             <a target="_blank" rel="noopener noreferrer" href="https://restaurante.jesuscmweb.com/">
                                 <img src="{{ url_for('static', filename='img/restaurante_app.png') }}"
                                     alt="App Restaurante SaaS" loading="lazy">
                             </a>
                         </div>
                         <div class="descripcion">
-                            <p class="nombre">Restaurante App (SaaS)</p>
+                            <p class="nombre">App Restaurante SaaS</p>
                             <p class="categoria">
                                 Flask · IA · Panel Admin · Carta digital · VPS
                             </p>
                         </div>
                     </div>
+
                 </div>
 
                 {% if session.get("admin") %}
