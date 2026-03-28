@@ -70,6 +70,13 @@ RESPUESTAS_VARIADAS = {
 
         "Actualmente estoy desarrollando una app profesional para restaurantes que permite gestionar la carta, destacar platos y recibir reservas. Puedes verla aquí: https://restaurante.jesuscmweb.com/"
     ],
+    "gastos": [
+        "He desarrollado una aplicación de gastos compartidos que permite dividir cuentas fácilmente. Puedes probarla aquí: https://gastos.jesuscmweb.com",
+
+        "Si necesitas repartir gastos entre varias personas, esta app permite registrar pagos y calcular automáticamente quién debe a quién: https://gastos.jesuscmweb.com",
+
+        "Tengo una herramienta práctica para gestionar gastos en viajes o grupos. Es instalable como app en el móvil: https://gastos.jesuscmweb.com"
+    ],
 
 }
 
@@ -116,6 +123,10 @@ def portfolio_agent(pregunta: str, historial=None):
         if recomendacion:
             logger.info(f"🤖 Recomendando proyecto: {recomendacion}")
             intencion = recomendacion
+    if not intencion:
+        if any(p in pregunta.lower() for p in ["gasto", "gastos", "dividir cuenta", "compartir gastos", "split", "expense"]):
+            logger.info("💸 Fallback: detectado como gastos")
+            intencion = "gastos"
     logger.info(f"🎯 Intención detectada: {intencion}")
 
     # 🍽️ PRIORIDAD: Restaurante (SaaS nuevo)
@@ -133,6 +144,24 @@ def portfolio_agent(pregunta: str, historial=None):
     if intencion in ["game", "games", "play"]:
         logger.info("🔁 Normalizando intención a 'juegos'")
         intencion = "juegos"
+
+    # 💸 PRIORIDAD: Gastos compartidos
+    if intencion == "gastos":
+        logger.info("💸 Respuesta directa gastos app")
+
+        if idioma == "en":
+            respuesta = random.choice([
+                "You can use the shared expenses app to split costs easily. Try it here: https://gastos.jesuscmweb.com",
+                "There is a shared expenses tool that helps you track payments and balances automatically: https://gastos.jesuscmweb.com",
+                "If you're managing group expenses, this app makes it simple to calculate who owes what: https://gastos.jesuscmweb.com"
+            ])
+        else:
+            respuesta = random.choice(RESPUESTAS_VARIADAS["gastos"])
+        
+        historial.append({"role": "user", "content": pregunta})
+        historial.append({"role": "assistant", "content": respuesta})
+        
+        return respuesta
     
     # 🎮 CASO ESPECIAL: Juegos - Consultar al agente especializado
     if intencion == "juegos":

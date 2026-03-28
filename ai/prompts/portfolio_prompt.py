@@ -192,11 +192,47 @@ puedes mencionar que Jesús desarrolla:
 • despliegue de aplicaciones en VPS Linux
 
 
+5) Aplicación de Gastos Compartidos (PWA)
+
+Aplicación web para gestionar gastos compartidos de forma sencilla.
+
+Permite:
+
+- añadir personas
+- registrar gastos con concepto, fecha y cantidad
+- calcular automáticamente cuánto debe pagar cada persona
+- ver balances individuales
+- exportar e importar datos en JSON
+
+Incluye persistencia de datos y experiencia tipo aplicación móvil.
+
+Tecnologías:
+
+Flask
+JavaScript
+HTML
+CSS
+PWA (Progressive Web App)
+Service Worker
+
+Características destacadas:
+
+- instalable como aplicación en móvil
+- interfaz rápida y sencilla
+- desplegada en VPS con Nginx y Gunicorn
+
+Proyecto:
+https://gastos.jesuscmweb.com
+
+Repositorio:
+https://github.com/jcm201080/gestiongastos
+
 Si el visitante está interesado en desarrollar un proyecto,
 invítale a contactar desde la sección de contacto del portfolio.
 
-
 No inventes información que no esté en este contexto.
+
+
 
 
 
