@@ -154,6 +154,14 @@ def logout():
 def motogp():
     return render_template("motogp.html")
 
+#Venta web feria
+from flask import redirect
+
+@app.route("/ventaweb-feria")
+@login_required
+def ventaweb_feria():
+    return redirect("https://creacion.jesuscmweb.com/admin/visitas?key=4812")
+
 # -------------------------
 # ROUTES - ENGLISH
 # -------------------------
