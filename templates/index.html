@@ -5,227 +5,212 @@ Jesús Castaño | Backend Python Developer
 {% endblock %}
 
 {% block content %}
-<!-- Acceso privado discreto -->
-    <div style="text-align:right; padding:10px;">
-        <a href="{{ url_for('login') }}" style="font-size:12px; opacity:0.3; text-decoration:none;">
-            ●
-        </a>
-    </div>
-    <main>
-        <section class="main">
-            <section class="acerca-de" id="acerca-de">
-                <div class="contenedor">
-                    <div class="foto">
-                        <img src="{{ url_for('static', filename='img/mifoto.png') }}" width="115" alt="Jesús Castaño">
-                    </div>
-                    <div class="texto">
-                        <h3 class="titulo">Acerca de</h3>
-                        <p>
-                            Soy <strong>Jesús Castaño</strong>, <strong>programador Python</strong> especializado en
-                            <strong>Flask</strong>, <strong>Big Data</strong> y despliegue de aplicaciones web reales en
-                            producción.
-                            Desarrollo proyectos completos con bases de datos, autenticación de usuarios, análisis de
-                            datos,
-                            gráficos interactivos y aplicaciones desplegadas en VPS.
-                        </p>
 
-
-                    </div>
+<main>
+    <section class="main">
+        <section class="acerca-de" id="acerca-de">
+            <div class="contenedor">
+                <div class="foto">
+                    <img src="{{ url_for('static', filename='img/mifoto.png') }}" width="115" alt="Jesús Castaño">
                 </div>
-            </section>
-            <section class="trabajos" id="trabajos">
-                <div class="contenedor">
-
-                    <!-- ===================== -->
-                    <!-- PROYECTOS DESTACADOS -->
-                    <!-- ===================== -->
-
-                    <h3 class="titulo">Proyectos Destacados</h3>
-                    <div class="contenedor-trabajos">
-
-                        <!-- Tienda Informática -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer" href="https://informatica.jesuscmweb.com">
-                                    <img src="{{ url_for('static', filename='img/programainfor.png') }}" alt="Sistema de gestión empresarial en Flask"
-                                        loading="lazy">
-                                </a>
-                            </div>
-
-                            <div class="descripcion">
-                                <p class="nombre">
-                                    Sistema de Gestión Empresarial (ERP)
-                                </p>
-
-                                <p class="categoria">
-                                    Flask · SQLAlchemy · Roles · Stock · Dashboard · Deploy
-                                </p>
-
-                                <div class="acciones">
-                                    <button class="btn-detalles" onclick="abrirModal('erp')">
-                                        🔍 Ver detalles
-                                    </button>
-
-                                    <a href="https://informatica.jesuscmweb.com" target="_blank" class="btn-proyecto">
-                                        🌐 Ver proyecto
-                                    </a>
-
-                                    <a href="https://github.com/jcm201080/ProyectoInformatica.git" target="_blank"
-                                        class="btn-repo">
-                                        Código
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Plataforma Juegos -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer" href="https://juegos.jesuscmweb.com">
-                                    <img src="{{ url_for('static', filename='img/juegosjcm1.png') }}" alt="Plataforma de juegos online con Flask y SocketIO"
-                                        loading="lazy">
-                                </a>
-                            </div>
-
-                            <div class="descripcion">
-                                <p class="nombre">
-                                    Plataforma Interactiva Juegos JCM
-                                </p>
-
-                                <p class="categoria">
-                                    Flask · Socket.IO · Tiempo real · Arquitectura modular · VPS
-                                </p>
-
-                                <div class="acciones">
-                                    <button class="btn-detalles" onclick="abrirModal('juegos')">
-                                        🔍 Ver detalles
-                                    </button>
-
-                                    <a href="https://juegos.jesuscmweb.com" target="_blank" class="btn-proyecto">
-                                        🌐 Ver proyecto
-                                    </a>
-
-                                    <a href="https://github.com/jcm201080/juegosJCM.git" target="_blank"
-                                        class="btn-repo">
-                                        Código
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <!-- Ciberseguridad -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://ciberseguridad.jesuscmweb.com">
-                                    <img src="{{ url_for('static', filename='img/ciberseguridad.png') }}"
-                                        alt="Sistema de análisis de logs y detección de anomalías" loading="lazy">
-                                </a>
-                            </div>
-
-                            <div class="descripcion">
-                                <p class="nombre">
-                                    Sistema de Análisis de Logs – Ciberseguridad
-                                </p>
-
-                                <p class="categoria">
-                                    Python · RegEx · Procesamiento masivo · Detección de anomalías
-                                </p>
-
-                                <div class="acciones">
-                                    <button class="btn-detalles" onclick="abrirModal('ciber')">
-                                        🔍 Ver detalles
-                                    </button>
-
-                                    <a href="https://ciberseguridad.jesuscmweb.com" target="_blank"
-                                        class="btn-proyecto">
-                                        🌐 Ver proyecto
-                                    </a>
-
-                                    <a href="https://github.com/jcm201080/log-analyzer-dashboard.git" target="_blank"
-                                        class="btn-repo">
-                                        Código
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Hamburguesería -->
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a target="_blank" rel="noopener noreferrer"
-                                    href="https://hamburgueseria.jesuscmweb.com">
-                                    <img src="{{ url_for('static', filename='img/burguer.png') }}" alt="Aplicación web Flask desplegada en producción"
-                                        loading="lazy">
-                                </a>
-                            </div>
-
-                            <div class="descripcion">
-                                <p class="nombre">
-                                    Aplicación Web Flask – Burger's
-                                </p>
-
-                                <p class="categoria">
-                                    Flask · Backend · Autenticación · Base de datos · VPS
-                                </p>
-
-                                <div class="acciones">
-                                    <button class="btn-detalles" onclick="abrirModal('burger')">
-                                        🔍 Ver detalles
-                                    </button>
-
-
-                                    <a href="https://hamburgueseria.jesuscmweb.com" target="_blank"
-                                        class="btn-proyecto">
-                                        🌐 Ver proyecto
-                                    </a>
-
-                                    <a href="https://github.com/jcm201080/Hamburgueseria.git" target="_blank"
-                                        class="btn-repo">
-                                        Código
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===================== -->
-            <!-- OTROS PROYECTOS -->
-            <!-- ===================== -->
-
-            <section class="otros">
-                <div class="contenedor">
-
-                    <h3 class="titulo">
-                        Otros trabajos y prácticas
-                    </h3>
-
-                    <p class="otros-descripcion">
-                        Proyectos frontend y prácticas de desarrollo web.
+                <div class="texto">
+                    <h3 class="titulo">Acerca de</h3>
+                    <p>
+                        Soy <strong>Jesús Castaño</strong>, <strong>programador Python</strong> especializado en
+                        <strong>Flask</strong>, <strong>Big Data</strong> y despliegue de aplicaciones web reales en
+                        producción.
+                        Desarrollo proyectos completos con bases de datos, autenticación de usuarios, análisis de
+                        datos,
+                        gráficos interactivos y aplicaciones desplegadas en VPS.
                     </p>
 
-                    <a href="{{ url_for('proyectos_web') }}" class="btn-otros">
-                        Ver todos los proyectos →
-                    </a>
 
                 </div>
-            </section>
-
-
+            </div>
         </section>
-    </main>
+        <section class="trabajos" id="trabajos">
+            <div class="contenedor">
 
-    <div id="modalProyecto" class="modal">
-        <div class="modal-contenido">
-            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+                <!-- ===================== -->
+                <!-- PROYECTOS DESTACADOS -->
+                <!-- ===================== -->
+
+                <h3 class="titulo">Proyectos y soluciones reales</h3>
+
+
+                <div class="contenedor-trabajos">
+
+                    <!-- Venta de webs -->
+                    <div class="trabajo">
+                        <div class="thumb">
+                            <a target="_blank" href="https://creacion.jesuscmweb.com/?origen=portfolio"">
+                                <img src="{{ url_for('static', filename='img/creacion.png') }}"
+                                    alt="Creación de páginas web y aplicaciones" loading="lazy">
+                            </a>
+                        </div>
+
+                        <div class="descripcion">
+                            <p class="nombre">
+                                Creación de Webs y Aplicaciones a Medida
+                            </p>
+
+                            <p class="categoria">
+                                Flask · IA · Panel Admin · Automatización · Deploy VPS
+                            </p>
+
+                            <div class="acciones">
+                                <button class="btn-detalles" onclick="abrirModal('creacion')">
+                                    🔍 Ver detalles
+                                </button>
+
+                                <a href="https://creacion.jesuscmweb.com/?origen=portfolio" target="_blank" class="btn-proyecto">
+                                    🌐 Ver proyecto
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tienda Informática -->
+                    <div class="trabajo">
+                        <div class="thumb">
+                            <a target="_blank" rel="noopener noreferrer" href="https://informatica.jesuscmweb.com">
+                                <img src="{{ url_for('static', filename='img/programainfor.png') }}"
+                                    alt="Sistema de gestión empresarial en Flask" loading="lazy">
+                            </a>
+                        </div>
+
+                        <div class="descripcion">
+                            <p class="nombre">
+                                Sistema de Gestión Empresarial (ERP)
+                            </p>
+
+                            <p class="categoria">
+                                Flask · SQLAlchemy · Roles · Stock · Dashboard · Deploy
+                            </p>
+
+                            <div class="acciones">
+                                <button class="btn-detalles" onclick="abrirModal('erp')">
+                                    🔍 Ver detalles
+                                </button>
+
+                                <a href="https://informatica.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                    🌐 Ver proyecto
+                                </a>
+
+                                <a href="https://github.com/jcm201080/ProyectoInformatica.git" target="_blank"
+                                    class="btn-repo">
+                                    Código
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plataforma Juegos -->
+                    <div class="trabajo">
+                        <div class="thumb">
+                            <a target="_blank" rel="noopener noreferrer" href="https://juegos.jesuscmweb.com">
+                                <img src="{{ url_for('static', filename='img/juegosjcm1.png') }}"
+                                    alt="Plataforma de juegos online con Flask y SocketIO" loading="lazy">
+                            </a>
+                        </div>
+
+                        <div class="descripcion">
+                            <p class="nombre">
+                                Plataforma Interactiva Juegos JCM
+                            </p>
+
+                            <p class="categoria">
+                                Flask · Socket.IO · Tiempo real · Arquitectura modular · VPS
+                            </p>
+
+                            <div class="acciones">
+                                <button class="btn-detalles" onclick="abrirModal('juegos')">
+                                    🔍 Ver detalles
+                                </button>
+
+                                <a href="https://juegos.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                    🌐 Ver proyecto
+                                </a>
+
+                                <a href="https://github.com/jcm201080/juegosJCM.git" target="_blank" class="btn-repo">
+                                    Código
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Ciberseguridad -->
+                    <div class="trabajo">
+                        <div class="thumb">
+                            <a target="_blank" rel="noopener noreferrer" href="https://ciberseguridad.jesuscmweb.com">
+                                <img src="{{ url_for('static', filename='img/ciberseguridad.png') }}"
+                                    alt="Sistema de análisis de logs y detección de anomalías" loading="lazy">
+                            </a>
+                        </div>
+
+                        <div class="descripcion">
+                            <p class="nombre">
+                                Sistema de Análisis de Logs – Ciberseguridad
+                            </p>
+
+                            <p class="categoria">
+                                Python · RegEx · Procesamiento masivo · Detección de anomalías
+                            </p>
+
+                            <div class="acciones">
+                                <button class="btn-detalles" onclick="abrirModal('ciber')">
+                                    🔍 Ver detalles
+                                </button>
+
+                                <a href="https://ciberseguridad.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                    🌐 Ver proyecto
+                                </a>
+
+                                <a href="https://github.com/jcm201080/log-analyzer-dashboard.git" target="_blank"
+                                    class="btn-repo">
+                                    Código
+                                </a>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- OTROS PROYECTOS -->
+        <!-- ===================== -->
+
+        <section class="otros">
+            <div class="contenedor">
+
+                <h3 class="titulo">
+                    Otros trabajos y prácticas
+                </h3>
+
+                <p class="otros-descripcion">
+                    Proyectos frontend y prácticas de desarrollo web.
+                </p>
+
+                <a href="{{ url_for('proyectos_web') }}" class="btn-otros">
+                    Ver todos los proyectos →
+                </a>
+
+            </div>
+        </section>
+
+
+    </section>
+</main>
+
+<div id="modalProyecto" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+        <div id="modalBody"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}

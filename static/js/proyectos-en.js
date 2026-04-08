@@ -39,6 +39,32 @@ function openModal(type) {
             </ul>
         `,
 
+        creacion_en: `
+            <h3>Custom Web & Application Development</h3>
+            <p>Development of complete web solutions for real businesses.</p>
+
+            <ul>
+                <li>Custom admin panel</li>
+                <li>Process automation</li>
+                <li>AI integration</li>
+                <li>VPS deployment</li>
+                <li>Mobile-friendly and production-ready</li>
+            </ul>
+
+            <p>
+                Ideal for restaurants, events, and local businesses looking to digitize their operations.
+            </p>
+
+            <!-- 🔥 CTA -->
+            <p style="margin-top:10px; font-weight:bold;">
+                🚀 Need a custom solution for your business? Let’s talk.
+            </p>
+
+            <a href="https://creacion.jesuscmweb.com/" target="_blank" class="btn-proyecto">
+                🌐 View project
+            </a>
+        `,
+
         burger: `
             <h3>Flask Web Application – Burger's</h3>
             <p>Production-ready web application deployed on a Linux VPS.</p>

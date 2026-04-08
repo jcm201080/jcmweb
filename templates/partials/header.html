@@ -8,11 +8,21 @@
                     <a href="{{ url_for('index_en') }}#projects">Projects</a>
                     <a href="{{ url_for('perfil_en') }}">Profile</a>
                     <a href="{{ url_for('index_en') }}#contact">Contact</a>
+
+                    <!-- NUEVOS -->
+                    <a href="{{ url_for('proyectos_web_en') }}">More Projects</a>
+                    
+                    <a href="{{ url_for('login') }}" class="login-link">Login</a>
+
                 {% else %}
                     <a href="{{ url_for('index') }}#acerca-de">Acerca de</a>
                     <a href="{{ url_for('index') }}#trabajos">Trabajos</a>
                     <a href="{{ url_for('perfil') }}">Perfil</a>
                     <a href="{{ url_for('index') }}#contacto">Contacto</a>
+
+                    <!-- NUEVOS -->
+                    <a href="{{ url_for('proyectos_web') }}">Más proyectos</a>
+                    <a href="{{ url_for('login') }}" class="login-link">Acceso</a>
                 {% endif %}
             </div>
 

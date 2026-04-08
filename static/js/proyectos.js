@@ -43,6 +43,29 @@ function abrirModal(tipo) {
                 <li>Detección de patrones sospechosos</li>
             </ul>
         `,
+        creacion: `
+            <h3>Creación de Webs y Aplicaciones a Medida</h3>
+            <p>Desarrollo de soluciones web completas para negocios reales.</p>
+
+            <ul>
+                <li>Panel de administración personalizado</li>
+                <li>Automatización de procesos</li>
+                <li>Integración con IA</li>
+                <li>Despliegue en VPS</li>
+                <li>Adaptado a móviles y uso real</li>
+            </ul>
+
+            <p>
+                Ideal para bares, ferias y negocios que necesitan digitalizar su gestión.
+            </p>
+            <p style="margin-top:10px; font-weight:bold;">
+                🚀 ¿Quieres algo así para tu negocio? Escríbeme.
+            </p>
+
+            <a href="https://creacion.jesuscmweb.com/" target="_blank" class="btn-proyecto">
+                🌐 Ver proyecto
+            </a>
+        `,
         burger: `
             <h3>Aplicación Web Flask – Burger's</h3>
             <p>Aplicación desplegada en entorno de producción.</p>

@@ -11,6 +11,7 @@
 @import 'gracias.css';
 @import 'perfil.css';
 @import 'admin.css';
+@import 'login.css';
 
 * {
     margin: 0;
@@ -18,4 +19,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+img {
+    aspect-ratio: 1 / 1;
 }

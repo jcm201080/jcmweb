@@ -231,6 +231,42 @@ Otros Proyectos Web | Jesús Castaño
                         </div>
                     </div>
 
+                    <!-- Hamburguesería -->
+                    <div class="trabajo">
+                        <div class="thumb">
+                            <a target="_blank" rel="noopener noreferrer" href="https://hamburgueseria.jesuscmweb.com">
+                                <img src="{{ url_for('static', filename='img/burguer.png') }}"
+                                    alt="Aplicación web Flask desplegada en producción" loading="lazy">
+                            </a>
+                        </div>
+
+                        <div class="descripcion">
+                            <p class="nombre">
+                                Aplicación Web Flask – Burger's
+                            </p>
+
+                            <p class="categoria">
+                                Flask · Backend · Autenticación · Base de datos · VPS
+                            </p>
+
+                            <div class="acciones">
+                                <button class="btn-detalles" onclick="abrirModal('burger')">
+                                    🔍 Ver detalles
+                                </button>
+
+
+                                <a href="https://hamburgueseria.jesuscmweb.com" target="_blank" class="btn-proyecto">
+                                    🌐 Ver proyecto
+                                </a>
+
+                                <a href="https://github.com/jcm201080/Hamburgueseria.git" target="_blank"
+                                    class="btn-repo">
+                                    Código
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 {% if session.get("admin") %}

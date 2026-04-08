@@ -1,32 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Acceso Privado</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="login-container">
+{% block title %}Acceso{% endblock %}
 
-    <h2>🔐 Acceso Privado</h2>
+{% block content %}
 
-    {% if error %}
-        <p class="error">{{ error }}</p>
-    {% endif %}
+<section class="login-wrapper">
 
-    {% if session.get("admin") %}
-        <p class="success">Sesión iniciada</p>
-        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar sesión</a>
-    {% else %}
-        <form method="POST">
-            <input type="email" name="email" placeholder="Correo" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
-        </form>
-    {% endif %}
+    <div class="login-container">
 
-</div>
+        <h2>🔐 Acceso restringido</h2>
 
-</body>
-</html>
+        <p class="login-sub">
+            Esta sección está reservada para usuarios autorizados.
+        </p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if session.get("admin") %}
+            <p class="success">Sesión iniciada correctamente</p>
+
+            <div class="login-actions">
+                <a href="{{ url_for('admin_visitas') }}" class="btn">Ir al panel</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-logout">Cerrar sesión</a>
+            </div>
+
+        {% else %}
+            <form method="POST">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+        {% endif %}
+
+        <!-- Volver -->
+        <div class="volver">
+            <a href="{{ url_for('index') }}">← Volver al inicio</a>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("click", function(e) {
+    const box = document.querySelector(".login-container");
+    if (!box.contains(e.target)) {
+        window.location.href = "{{ url_for('index') }}";
+    }
+});
+</script>
+
+{% endblock %}
