@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Backend Python Developer especializado en Flask, Big Data y despliegue en VPS. Proyectos reales en producción.">
+    <meta name="description"
+        content="Backend Python Developer especializado en Flask, Big Data y despliegue en VPS. Proyectos reales en producción.">
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v={{ static_version }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_chat.css') }}">
+    <!-- ✅ VERSIONADO CONTROLADO -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v={{ APP_VERSION }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_chat.css') }}?v={{ APP_VERSION }}">
+
 </head>
 
 <body>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCHPSVVD"
-                height="0"
-                width="0"
-                style="display:none;visibility:hidden">
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCHPSVVD" height="0" width="0"
+            style="display:none;visibility:hidden">
         </iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -31,12 +32,15 @@
     {% include "partials/footer.html" %}
     {% include "partials/ai_chat.html" %}
 
-    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/efectos.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ai_chat.js') }}"></script>
+    <!-- ✅ JS también versionado -->
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}?v={{ APP_VERSION }}"></script>
+    <script src="{{ url_for('static', filename='js/efectos.js') }}?v={{ APP_VERSION }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}?v={{ APP_VERSION }}"></script>
+    <script src="{{ url_for('static', filename='js/ai_chat.js') }}?v={{ APP_VERSION }}"></script>
+
 
     {% block extra_js %}{% endblock %}
 
 </body>
+
 </html>

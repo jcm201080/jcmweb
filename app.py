@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from datetime import timedelta
 from sqlalchemy import func
 
+
+
 from ai.orchestrator.orchestrator import preguntar_orchestrator
 
 import logging
@@ -23,6 +25,10 @@ load_dotenv()
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev_secret_key")
+
+APP_VERSION = "2.0"
+APP_NAME = "Jesús Castaño Portfolio"
+APP_AUTHOR = "Jesús Castaño"
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -334,6 +340,14 @@ def portafolio_ai():
 
     return jsonify({"respuesta": respuesta})
 
+
+@app.context_processor
+def inject_config():
+    return {
+        "APP_VERSION": APP_VERSION,
+        "APP_NAME": APP_NAME,
+        "APP_AUTHOR": APP_AUTHOR
+    }
 # -------------------------
 # RUN
 # -------------------------
